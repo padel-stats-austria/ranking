@@ -11,8 +11,9 @@ const randomPause = () => sleep(1500 + Math.floor(Math.random() * 1000));
 async function fetchHTML(url) {
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'APU-Analytics-Viewer/1.0 (Respectful-Daily-Sync)',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+      'Accept-Language': 'de-AT,de;q=0.9,en;q=0.8'
     }
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} für ${url}`);
@@ -61,8 +62,7 @@ async function run() {
     } catch (e) {}
   }
 
-  const oldList = oldData.data || oldData.players || [];
-  const oldMap = new Map(oldList.map((p) => [p.url, p]));
+  const oldMap = new Map((oldData.data || oldData.players || []).map((p) => [p.url, p]));
   const seenUrls = new Set();
   const currentList = [];
 
@@ -71,6 +71,9 @@ async function run() {
     const html = await fetchHTML(`${BASE_URL}/rankings/males?page=${page}`);
     const $ = cheerio.load(html);
     let addedOnPage = 0;
+
+    console.log('DEBUG Titel:', $('title').text().trim());
+    console.log('DEBUG Body-Text:', $('body').text().replace(/\s+/g, ' ').slice(0, 300));
 
     $('table tbody tr').each((_, tr) => {
       const tds = $(tr).find('td');
@@ -208,10 +211,8 @@ async function run() {
 
   const output = {
     datum,
-    lastUpdated: now.toISOString(),
     totalPlayers: updatedPlayers.length,
-    data: updatedPlayers,
-    players: updatedPlayers // Rückwärtskompatibilität für dein Frontend
+    data: updatedPlayers
   };
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
