@@ -146,7 +146,7 @@ body {
     min-width: max-content;
 }
 
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
     .grid-row {
         grid-template-columns: 45px minmax(250px, 2.4fr) 95px 85px 85px 115px 110px;
     }
