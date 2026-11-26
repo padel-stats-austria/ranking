@@ -136,7 +136,7 @@
           const parsed = JSON.parse(gespeichert);
           if (parsed && parsed.data && parsed.data.length > 0 && (Date.now() - (parsed.savedAt || 0) < 3600000)) {
             liste = parsed.data;
-            st.textContent = '● Cache-Stand (' + parsed.datum + ')';
+            st.textContent = '● Stand: ' + (parsed.datum || 'aktuell');
             st.style.color = '#34d399';
             st.style.borderColor = 'rgba(16,185,129,.4)';
             document.getElementById('reloadBtn').style.display = 'inline-block';
