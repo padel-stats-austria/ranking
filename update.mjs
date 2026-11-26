@@ -1,12 +1,12 @@
 import fs from 'fs';
 import * as cheerio from 'cheerio';
 
-const PAGES = 1; // 1 = Top 50, 10 = Top 500, 20 = Top 1000
+const PAGES = 2; // 5 = Top 250 (lädt jetzt die nächsten 200 nach), 10 = Top 500
 const BASE_URL = 'https://padel-austria.at';
 const DATA_FILE = './data.json';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const randomPause = () => sleep(1500 + Math.floor(Math.random() * 1000));
+const randomPause = () => sleep(3500 + Math.floor(Math.random() * 2000));
 
 async function fetchHTML(url) {
   const res = await fetch(url, {
@@ -53,6 +53,21 @@ function dateToTs(str) {
   if (!m) return 9e15;
   const ts = new Date(`${m[3]}-${m[2]}-${m[1]}`).getTime();
   return isNaN(ts) ? 9e15 : ts;
+}
+
+function saveData(playersList) {
+  const now = new Date();
+  const datum =
+    now.toLocaleDateString('de-AT', { timeZone: 'Europe/Vienna' }) +
+    ' ' +
+    now.toLocaleTimeString('de-AT', { timeZone: 'Europe/Vienna', hour: '2-digit', minute: '2-digit' });
+
+  const output = {
+    datum,
+    totalPlayers: playersList.length,
+    data: playersList
+  };
+  fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
 }
 
 async function run() {
@@ -206,28 +221,24 @@ async function run() {
         flag
       });
 
+      if (fetchedCount % 25 === 0) {
+        saveData(updatedPlayers);
+      }
+
       await randomPause();
     } catch (err) {
       console.error(`Fehler bei ${item.name}:`, err.message);
       if (existing) {
         updatedPlayers.push({ ...existing, platz: item.platz });
       }
+      if (err.message.includes('429')) {
+        console.warn('Rate-Limit (429) erreicht – speichere bisherigen Stand und beende sauber.');
+        break;
+      }
     }
   }
 
-  const now = new Date();
-  const datum =
-    now.toLocaleDateString('de-AT', { timeZone: 'Europe/Vienna' }) +
-    ' ' +
-    now.toLocaleTimeString('de-AT', { timeZone: 'Europe/Vienna', hour: '2-digit', minute: '2-digit' });
-
-  const output = {
-    datum,
-    totalPlayers: updatedPlayers.length,
-    data: updatedPlayers
-  };
-
-  fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
+  saveData(updatedPlayers);
   console.log(`Fertig: ${fetchedCount} Profile geladen, ${updatedPlayers.length} Spieler gespeichert.`);
 }
 
