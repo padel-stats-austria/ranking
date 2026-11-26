@@ -33,7 +33,6 @@ function getH4Value($, labelText) {
 
 function extractOldestDate($) {
   const fullText = $('body').text();
-  // Letztes Vorkommen von "Matches" nehmen (nicht "Matches Gespielt/Gewonnen/Verloren" weiter oben!)
   const parts = fullText.split(/Matches\b/);
   const matchSection = parts.length > 1 ? parts[parts.length - 1] : fullText;
   const regex = /(\d{2})\.(\d{2})\.(\d{4})/g;
@@ -74,7 +73,6 @@ async function run() {
     const $ = cheerio.load(html);
     let addedOnPage = 0;
 
-    // Direkt alle Spieler-Links suchen (egal ob in <table>, <tbody> oder <div>)
     $('a[href*="/players/"]').each((_, a) => {
       const link = $(a);
       const rawUrl = link.attr('href');
@@ -85,7 +83,6 @@ async function run() {
       const name = link.text().trim();
       if (!name) return;
 
-      // Umschließende Zeile (<tr> oder übergeordnetes Zeilen-Element) suchen
       const row = link.closest('tr').length ? link.closest('tr') : link.parent().parent();
       const cells = row.children();
 
@@ -96,7 +93,6 @@ async function run() {
         platz = parseInt(cells.eq(0).text().replace(/\D/g, ''), 10) || 0;
         punkte = parseInt(cells.eq(cells.length - 1).text().replace(/\D/g, ''), 10) || 0;
       } else {
-        // Fallback: Zahlen aus dem gesamten Zeilentext holen (erste Zahl = Platz, größte Zahl = Punkte)
         const nums = row.text().match(/\d+/g)?.map(Number) || [];
         if (nums.length >= 2) {
           platz = nums[0];
@@ -112,10 +108,7 @@ async function run() {
     });
 
     console.log(`Seite ${page}: ${addedOnPage} Spieler gelesen.`);
-    if (addedOnPage === 0) {
-      console.log('DEBUG Links gefunden:', $('a').length, '| Beispiel-Hrefs:', $('a').slice(0, 15).map((_, el) => $(el).attr('href')).get().join(', '));
-      break;
-    }
+    if (addedOnPage === 0) break;
     await randomPause();
   }
 
@@ -127,13 +120,13 @@ async function run() {
     const item = currentList[i];
     const existing = oldMap.get(item.url);
 
+    const hasValidSeit = existing?.seitT && /\d{2}\.\d{2}\.\d{4}/.test(existing.seitT);
+
     const hasCompleteCache =
       existing &&
       existing.punkte === item.punkte &&
       existing.apnT &&
-      existing.seitT &&
-      existing.seitT !== '-' &&
-      existing.seitV2 === true &&
+      hasValidSeit &&
       existing.flag !== undefined;
 
     if (hasCompleteCache) {
@@ -174,8 +167,8 @@ async function run() {
         flag = flagSrc;
       }
 
-      let seitT = existing?.seitV2 && existing.seitT !== '-' ? existing.seitT : '';
-      if (!seitT || seitT === '-') {
+      let seitT = hasValidSeit ? existing.seitT : '';
+      if (!seitT) {
         let maxP = 1;
         $p('a[href*="page="]').each((_, a) => {
           const href = $p(a).attr('href') || '';
@@ -192,6 +185,8 @@ async function run() {
           seitT = extractOldestDate($p) || '-';
         }
       }
+
+      console.log(`   -> ${item.name}: APN=${apnT}, Matches=${mT}, Aktiv seit=${seitT} (Seiten: ${maxP || 1})`);
 
       updatedPlayers.push({
         platz: item.platz,
