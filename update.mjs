@@ -33,7 +33,9 @@ function getH4Value($, labelText) {
 
 function extractOldestDate($) {
   const fullText = $('body').text();
-  const matchSection = fullText.split('Matches')[1] || fullText;
+  // Letztes Vorkommen von "Matches" nehmen (nicht "Matches Gespielt/Gewonnen/Verloren" weiter oben!)
+  const parts = fullText.split(/Matches\b/);
+  const matchSection = parts.length > 1 ? parts[parts.length - 1] : fullText;
   const regex = /(\d{2})\.(\d{2})\.(\d{4})/g;
   const dates = [];
   let m;
@@ -130,6 +132,7 @@ async function run() {
       existing.punkte === item.punkte &&
       existing.apnT &&
       existing.seitT &&
+      existing.seitT !== '-' &&
       existing.seitV2 === true &&
       existing.flag !== undefined;
 
@@ -171,7 +174,7 @@ async function run() {
         flag = flagSrc;
       }
 
-      let seitT = existing?.seitV2 ? existing.seitT : '';
+      let seitT = existing?.seitV2 && existing.seitT !== '-' ? existing.seitT : '';
       if (!seitT || seitT === '-') {
         let maxP = 1;
         $p('a[href*="page="]').each((_, a) => {
