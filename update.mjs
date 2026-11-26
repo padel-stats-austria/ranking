@@ -30,29 +30,37 @@ function getH4Value($, labelText) {
 }
 
 function extractOldestDate($) {
+  const fullText = $('body').text();
+  const matchSection = fullText.split('Matches')[1] || fullText;
+  const regex = /(\d{2})\.(\d{2})\.(\d{4})/g;
   const dates = [];
-  $('small').each((_, el) => {
-    const m = $(el).text().match(/(\d{2})\.(\d{2})\.(\d{4})/);
-    if (m) {
-      const str = `${m[1]}.${m[2]}.${m[3]}`;
-      const ts = new Date(`${m[3]}-${m[2]}-${m[1]}`).getTime();
-      if (!isNaN(ts)) dates.push({ str, ts });
-    }
-  });
+  let m;
+  while ((m = regex.exec(matchSection)) !== null) {
+    const str = `${m[1]}.${m[2]}.${m[3]}`;
+    const ts = new Date(`${m[3]}-${m[2]}-${m[1]}`).getTime();
+    if (!isNaN(ts)) dates.push({ str, ts });
+  }
   if (!dates.length) return '';
   dates.sort((a, b) => a.ts - b.ts);
   return dates[0].str;
 }
 
+function dateToTs(str) {
+  const m = String(str || '').match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  if (!m) return 9e15;
+  const ts = new Date(`${m[3]}-${m[2]}-${m[1]}`).getTime();
+  return isNaN(ts) ? 9e15 : ts;
+}
+
 async function run() {
-  let oldData = { players: [] };
+  let oldData = { data: [] };
   if (fs.existsSync(DATA_FILE)) {
     try {
       oldData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-    } catch (e) {}
+    } catch (e) { }
   }
 
-  const oldMap = new Map((oldData.players || []).map((p) => [p.url, p]));
+  const oldMap = new Map((oldData.data || oldData.players || []).map((p) => [p.url, p]));
   const seenUrls = new Set();
   const currentList = [];
 
@@ -68,16 +76,19 @@ async function run() {
       const link = $(tds[1]).find('a');
       if (!link.length) return;
 
-      const url = link.attr('href');
-      if (!url || seenUrls.has(url)) return;
-      seenUrls.add(url);
+      const rawUrl = link.attr('href');
+      if (!rawUrl) return;
+      const fullUrl = rawUrl.startsWith('http') ? rawUrl : `${BASE_URL}${rawUrl}`;
+
+      if (seenUrls.has(fullUrl)) return;
+      seenUrls.add(fullUrl);
 
       const name = link.text().trim();
       const platz = parseInt($(tds[0]).text().trim(), 10) || 0;
       const punkte = parseInt($(tds[2]).text().replace(/\D/g, ''), 10) || 0;
 
       if (name) {
-        currentList.push({ platz, name, url, punkte });
+        currentList.push({ platz, name, url: fullUrl, punkte });
         addedOnPage++;
       }
     });
@@ -99,6 +110,7 @@ async function run() {
       existing.punkte === item.punkte &&
       existing.apnT &&
       existing.seitT &&
+      existing.seitV2 === true &&
       existing.flag !== undefined;
 
     if (hasCompleteCache) {
@@ -113,7 +125,7 @@ async function run() {
     try {
       fetchedCount++;
       console.log(`[${i + 1}/${currentList.length}] Lade Profil: ${item.name}`);
-      const pHtml = await fetchHTML(`${BASE_URL}${item.url}`);
+      const pHtml = await fetchHTML(item.url);
       const $p = cheerio.load(pHtml);
 
       const apnT = getH4Value($p, 'APN') || existing?.apnT || '-';
@@ -139,18 +151,18 @@ async function run() {
         flag = flagSrc;
       }
 
-      let seitT = existing?.seitT || '';
+      let seitT = existing?.seitV2 ? existing.seitT : '';
       if (!seitT || seitT === '-') {
         let maxP = 1;
         $p('a[href*="page="]').each((_, a) => {
-          const href = $(a).attr('href') || '';
+          const href = $p(a).attr('href') || '';
           const m = href.match(/page=(\d+)/);
           if (m) maxP = Math.max(maxP, parseInt(m[1], 10));
         });
 
         if (maxP > 1) {
           await randomPause();
-          const lastHtml = await fetchHTML(`${BASE_URL}${item.url}?page=${maxP}`);
+          const lastHtml = await fetchHTML(`${item.url}?page=${maxP}`);
           const $last = cheerio.load(lastHtml);
           seitT = extractOldestDate($last) || extractOldestDate($p) || '-';
         } else {
@@ -163,14 +175,15 @@ async function run() {
         name: item.name,
         url: item.url,
         punkte: item.punkte,
-        apn,
+        apnZ: apn,
         apnT,
-        matches,
+        mZ: matches,
         mT,
-        eff,
+        effZ: eff,
         effT,
-        seit: seitT,
+        seitZ: dateToTs(seitT),
         seitT,
+        seitV2: true,
         bild,
         flag
       });
@@ -184,10 +197,13 @@ async function run() {
     }
   }
 
+  const now = new Date();
+  const datum = now.toLocaleDateString('de-AT') + ' ' + now.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' });
+
   const output = {
-    lastUpdated: new Date().toISOString(),
+    datum,
     totalPlayers: updatedPlayers.length,
-    players: updatedPlayers
+    data: updatedPlayers
   };
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
