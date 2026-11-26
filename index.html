@@ -1,277 +1,19 @@
 <!DOCTYPE html>
-<html lang="de" style="margin:0;padding:0;background:#090d16;color:#f3f4f6;">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Padel Stats Austria • Ranking</title>
-  <style>
-    .w {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 30px 20px 60px
-    }
-
-    .h {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px
-    }
-
-    .t {
-      margin: 0;
-      font-size: 28px;
-      font-weight: 800;
-      color: #fff
-    }
-
-    .b-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .b {
-      padding: 6px 14px;
-      border-radius: 99px;
-      font-size: 13px;
-      font-weight: 600;
-      background: #1e293b;
-      color: #fbbf24;
-      border: 1px solid #334155
-    }
-
-    .btn-rel {
-      background: #1f2937;
-      color: #d1d5db;
-      border: 1px solid #374151;
-      padding: 6px 12px;
-      border-radius: 99px;
-      font-size: 12px;
-      cursor: pointer
-    }
-
-    .btn-rel:hover {
-      background: #374151;
-      color: #fff
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px
-    }
-
-    .kpi {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
-      padding: 16px 20px
-    }
-
-    .kl {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      color: #9ca3af;
-      margin-bottom: 6px
-    }
-
-    .kv {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.3
-    }
-
-    .ctrl {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      background: #111827;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #1f2937
-    }
-
-    .inp,
-    .sel {
-      background: #090d16;
-      color: #fff;
-      border: 1px solid #374151;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 14px;
-      outline: none
-    }
-
-    .inp {
-      flex: 1;
-      min-width: 220px
-    }
-
-    .card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-      overflow-x: auto
-    }
-
-    .grid-row {
-      display: grid;
-      grid-template-columns: 65px 2.4fr 95px 85px 85px 115px 110px;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid #1f2937;
-      font-size: 14px;
-      gap: 8px;
-      min-width: 740px
-    }
-
-    .grid-head {
-      position: sticky;
-      top: 0;
-      background: rgba(17, 24, 39, .95);
-      backdrop-filter: blur(8px);
-      font-size: 12px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #9ca3af;
-      z-index: 10;
-      border-radius: 14px 14px 0 0
-    }
-
-    .grid-body:hover {
-      background: rgba(255, 255, 255, .03)
-    }
-
-    .rk {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      background: #1f2937;
-      color: #d1d5db
-    }
-
-    .r1 {
-      background: rgba(250, 204, 21, .15);
-      color: #facc15;
-      border: 1px solid rgba(250, 204, 21, .4)
-    }
-
-    .r2 {
-      background: rgba(203, 213, 225, .15);
-      color: #e2e8f0;
-      border: 1px solid rgba(203, 213, 225, .4)
-    }
-
-    .r3 {
-      background: rgba(217, 119, 6, .15);
-      color: #fb923c;
-      border: 1px solid rgba(217, 119, 6, .4)
-    }
-
-    .pc {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0
-    }
-
-    .pi {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      border: 2px solid #374151;
-      background: #1f2937;
-      flex-shrink: 0
-    }
-
-    .pn {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #1e293b;
-      border: 2px solid #334155;
-      color: #94a3b8;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 13px;
-      flex-shrink: 0
-    }
-
-    .pl {
-      color: #f9fafb;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis
-    }
-
-    .pl:hover {
-      color: #34d399
-    }
-
-    .apn {
-      background: rgba(251, 191, 36, .1);
-      color: #fbbf24;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px
-    }
-
-    .ew {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px
-    }
-
-    .eb {
-      width: 70px;
-      height: 5px;
-      background: #1f2937;
-      border-radius: 99px;
-      overflow: hidden
-    }
-
-    .ef {
-      height: 100%;
-      background: linear-gradient(90deg, #10b981, #34d399);
-      border-radius: 99px
-    }
-
-    .tr {
-      text-align: right
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="margin:0;padding:0;background:#090d16;color:#f3f4f6;font-family:system-ui,sans-serif;overflow-x:hidden;">
+<body>
   <div class="w">
     <div class="h">
       <div>
-        <div
-          style="font-size:12px;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">
+        <div class="header">
           Padel Stats Austria • Ranking</div>
         <h1 class="t" id="pageTitle">Herren Rangliste</h1>
       </div>
@@ -284,13 +26,28 @@
     <div id="kpis" class="kpis"></div>
     <div id="ctrl" class="ctrl">
       <input id="suche" class="inp" placeholder="Spielername suchen...">
-      <select id="sort" class="sel">
+      <!-- <select id="sort" class="sel">
         <option value="platz">Sortieren: APU Platz</option>
         <option value="eff">Sortieren: Effektivität</option>
         <option value="apn">Sortieren: APN</option>
         <option value="matches">Sortieren: Matches</option>
         <option value="seit">Sortieren: Aktiv seit (älteste)</option>
+      </select> -->
+
+      <select id="sort" class="sel">
+        <option value="platz">Sortieren: APU-Platz (aufsteigend)</option>
+        <option value="punkte_desc">Sortieren: Punkte (absteigend)</option>
+        <option value="punkte_asc">Sortieren: Punkte (aufsteigend)</option>
+        <option value="eff_desc">Sortieren: Effektivität (absteigend)</option>
+        <option value="eff_asc">Sortieren: Effektivität (aufsteigend)</option>
+        <option value="apn_desc">Sortieren: APN (absteigend)</option>
+        <option value="apn_asc">Sortieren: APN (aufsteigend)</option>
+        <option value="matches_desc">Sortieren: Matches (absteigend)</option>
+        <option value="matches_asc">Sortieren: Matches (aufsteigend)</option>
+        <option value="seit_asc">Sortieren: Aktiv seit (älteste zuerst)</option>
+        <option value="seit_desc">Sortieren: Aktiv seit (neueste zuerst)</option>
       </select>
+
     </div>
     <div id="tw" class="card"></div>
   </div>
@@ -317,24 +74,60 @@
       const render = () => {
         const q = document.getElementById('suche').value.toLowerCase();
         const sb = document.getElementById('sort').value;
+
+        // const f = liste.filter(x => x.name.toLowerCase().includes(q)).sort((a, b) => {
+        //   if (sb === 'eff') return b.effZ - a.effZ;
+        //   if (sb === 'apn') return b.apnZ - a.apnZ;
+        //   if (sb === 'matches') return b.mZ - a.mZ;
+        //   if (sb === 'seit') return a.seitZ - b.seitZ;
+        //   return a.platz - b.platz;
+        // });
+
         const f = liste.filter(x => x.name.toLowerCase().includes(q)).sort((a, b) => {
-          if (sb === 'eff') return b.effZ - a.effZ;
-          if (sb === 'apn') return b.apnZ - a.apnZ;
-          if (sb === 'matches') return b.mZ - a.mZ;
-          if (sb === 'seit') return a.seitZ - b.seitZ;
+          const pA = parseInt(String(a.punkte).replace(/\D/g, ''), 10) || 0;
+          const pB = parseInt(String(b.punkte).replace(/\D/g, ''), 10) || 0;
+          if (sb === 'punkte_desc') return pB - pA;
+          if (sb === 'punkte_asc') return pA - pB;
+          if (sb === 'eff_desc') return b.effZ - a.effZ;
+          if (sb === 'eff_asc') return a.effZ - b.effZ;
+          if (sb === 'apn_desc') return b.apnZ - a.apnZ;
+          if (sb === 'apn_asc') return a.apnZ - b.apnZ;
+          if (sb === 'matches_desc') return b.mZ - a.mZ;
+          if (sb === 'matches_asc') return a.mZ - b.mZ;
+          if (sb === 'seit_asc') return a.seitZ - b.seitZ;
+          if (sb === 'seit_desc') return b.seitZ - a.seitZ;
           return a.platz - b.platz;
         });
+
+        // const rows = f.map(x => {
+        //   const p = x.name.split(' ');
+        //   const ini = ((p[0] ? p[0].charAt(0) : '') + (p[1] ? p[1].charAt(0) : '')).toUpperCase();
+        //   const rc = x.platz === 1 ? 'rk r1' : (x.platz === 2 ? 'rk r2' : (x.platz === 3 ? 'rk r3' : 'rk'));
+        //   const av = x.bild ? '<img src="' + x.bild + '" class="pi" loading="lazy">' : '<div class="pn">' + ini + '</div>';
+        //   const bw = x.effZ > 0 ? Math.min(100, Math.round(x.effZ)) : 0;
+
+        //   return '<div class="grid-row grid-body">' +
+        //     '<div><span class="' + rc + '">' + x.platz + '</span></div>' +
+        //     '<div class="pc">' + av + '<a href="' + x.url + '" target="_blank" rel="noopener" class="pl">' + x.name + '</a></div>' +
+        //     '<div class="tr" style="font-weight:700;color:#fff">' + x.punkte + '</div>' +
+        //     '<div class="tr"><span class="apn">' + x.apnT + '</span></div>' +
+        //     '<div class="tr" style="color:#d1d5db">' + x.mT + '</div>' +
+        //     '<div class="tr"><div class="ew"><span style="color:#34d399;font-weight:700">' + x.effT + '</span><div class="eb"><div class="ef" style="width:' + bw + '%"></div></div></div></div>' +
+        //     '<div class="tr" style="color:#9ca3af;font-size:13px">' + x.seitT + '</div>' +
+        //     '</div>';
+        // }).join('');
 
         const rows = f.map(x => {
           const p = x.name.split(' ');
           const ini = ((p[0] ? p[0].charAt(0) : '') + (p[1] ? p[1].charAt(0) : '')).toUpperCase();
           const rc = x.platz === 1 ? 'rk r1' : (x.platz === 2 ? 'rk r2' : (x.platz === 3 ? 'rk r3' : 'rk'));
           const av = x.bild ? '<img src="' + x.bild + '" class="pi" loading="lazy">' : '<div class="pn">' + ini + '</div>';
+          const fl = x.flag ? '<img src="' + x.flag + '" alt="" style="width:20px;height:14px;object-fit:cover;border-radius:2px;flex-shrink:0">' : '';
           const bw = x.effZ > 0 ? Math.min(100, Math.round(x.effZ)) : 0;
 
           return '<div class="grid-row grid-body">' +
             '<div><span class="' + rc + '">' + x.platz + '</span></div>' +
-            '<div class="pc">' + av + '<a href="' + x.url + '" target="_blank" rel="noopener" class="pl">' + x.name + '</a></div>' +
+            '<div class="pc">' + av + fl + '<a href="' + x.url + '" target="_blank" rel="noopener" class="pl">' + x.name + '</a></div>' +
             '<div class="tr" style="font-weight:700;color:#fff">' + x.punkte + '</div>' +
             '<div class="tr"><span class="apn">' + x.apnT + '</span></div>' +
             '<div class="tr" style="color:#d1d5db">' + x.mT + '</div>' +
@@ -362,6 +155,15 @@
         localStorage.removeItem(cacheKey);
         location.reload();
       });
+
+      const uniqueByUrl = (arr) => {
+        const seen = new Set();
+        return (arr || []).filter(item => {
+          if (!item || !item.url || seen.has(item.url)) return false;
+          seen.add(item.url);
+          return true;
+        });
+      };
 
       const gespeichert = localStorage.getItem(cacheKey);
       if (gespeichert) {
