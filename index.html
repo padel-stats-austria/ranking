@@ -1,427 +1,178 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Padel Stats Austria • Ranking</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface2: #334155;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-hover: #0284c7;
-      --border: #334155;
-      --good: #4ade80;
-      --warn: #fbbf24;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header h1 {
-      font-size: 1.5rem;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .status {
-      font-size: 0.85rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn {
-      background: var(--surface2);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      background: var(--accent);
-      color: #0f172a;
-      border-color: var(--accent);
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .kpi-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 15px;
-    }
-
-    .kpi-title {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 5px;
-    }
-
-    .kpi-val {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .kpi-sub {
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-top: 3px;
-    }
-
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .search-input,
-    .sort-select {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
-    }
-
-    .search-input {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .search-input:focus,
-    .sort-select:focus {
-      border-color: var(--accent);
-    }
-
-    .table-container {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    th {
-      background: rgba(15, 23, 42, 0.6);
-      color: var(--muted);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    th:hover {
-      color: var(--accent);
-    }
-
-    td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.92rem;
-      white-space: nowrap;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:hover td {
-      background: rgba(56, 189, 248, 0.05);
-    }
-
-    .player-cell {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-
-    .flag-icon {
-      width: 20px;
-      height: auto;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .player-link {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.15s;
-    }
-
-    .player-link:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background: var(--surface2);
-      color: var(--accent);
-    }
-
-    .rank-num {
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    .rank-top {
-      color: var(--warn);
-    }
-
-    .empty {
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="app">
+    <div class="header">
+      <h2>Padel Stats Austria • Ranking</h2>
+      <div>
+        <span id="status" style="font-size:13px;color:#94a3b8;margin-right:10px;">Lade Daten...</span>
+        <button class="btn" id="reloadBtn">↻ Neu laden</button>
+      </div>
+    </div>
 
-  <div class="header">
-    <h1>Padel Stats Austria • Ranking</h1>
-    <div class="status">
-      <span id="lastUpdate">Lade Daten...</span>
-      <button class="btn" id="reloadBtn" title="Lokalen Cache leeren und neu laden">↻ Neu laden</button>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="controls">
+      <input class="input" id="search" placeholder="Spieler suchen (z.B. Eiersebner, Alten, Novak...)">
+      <select class="select" id="sort">
+        <option value="platz_asc">Sortieren: APU-Platz (aufsteigend)</option>
+        <option value="punkte_desc">Sortieren: Punkte (absteigend)</option>
+        <option value="punkte_asc">Sortieren: Punkte (aufsteigend)</option>
+        <option value="apn_desc">Sortieren: APN (absteigend)</option>
+        <option value="apn_asc">Sortieren: APN (aufsteigend)</option>
+        <option value="matches_desc">Sortieren: Matches (absteigend)</option>
+        <option value="matches_asc">Sortieren: Matches (aufsteigend)</option>
+        <option value="eff_desc">Sortieren: Effektivität (absteigend)</option>
+        <option value="eff_asc">Sortieren: Effektivität (aufsteigend)</option>
+        <option value="seit_desc">Sortieren: Aktiv seit (neueste zuerst)</option>
+        <option value="seit_asc">Sortieren: Aktiv seit (älteste zuerst)</option>
+      </select>
+    </div>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th data-col="platz">APU-Platz</th>
+            <th data-col="name">Spieler</th>
+            <th data-col="punkte">Punkte</th>
+            <th data-col="apn">APN</th>
+            <th data-col="matches">Matches</th>
+            <th data-col="eff">Effektivität</th>
+            <th data-col="seit">Aktiv seit</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
     </div>
   </div>
 
-  <div class="kpis" id="kpis"></div>
-
-  <div class="controls">
-    <input type="text" id="searchInput" class="search-input" placeholder="Spielername suchen...">
-    <select id="sortSelect" class="sort-select">
-      <option value="platz_asc">Sortieren: APU-Platz (1 → …)</option>
-      <option value="punkte_desc">Sortieren: Punkte (absteigend)</option>
-      <option value="punkte_asc">Sortieren: Punkte (aufsteigend)</option>
-      <option value="apn_desc">Sortieren: APN (absteigend)</option>
-      <option value="apn_asc">Sortieren: APN (aufsteigend)</option>
-      <option value="matches_desc">Sortieren: Matches (absteigend)</option>
-      <option value="matches_asc">Sortieren: Matches (aufsteigend)</option>
-      <option value="eff_desc">Sortieren: Effektivität % (absteigend)</option>
-      <option value="eff_asc">Sortieren: Effektivität % (aufsteigend)</option>
-      <option value="seit_asc">Sortieren: Aktiv seit (älteste zuerst)</option>
-      <option value="seit_desc">Sortieren: Aktiv seit (neueste zuerst)</option>
-    </select>
-  </div>
-
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th data-col="platz">APU-Platz</th>
-          <th>Spieler</th>
-          <th data-col="punkte">Punkte</th>
-          <th data-col="apn">APN</th>
-          <th data-col="matches">Matches</th>
-          <th data-col="eff">Effektivität</th>
-          <th data-col="seit">Aktiv seit</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
-
   <script>
-    const CACHE_KEY = 'apu_stats_cache_v2';
-    const CACHE_TTL = 1000 * 60 * 60; // 1 Stunde LocalStorage-Cache
+    const CACHE_KEY = 'apu_stats_cache_v3';
+    let players = [];
 
-    let allPlayers = [];
-    let currentSort = 'platz_asc';
-
-    function parseDateTs(str) {
-      if (!str || str === '-') return 0;
-      const parts = str.split('.');
-      if (parts.length !== 3) return 0;
-      return new Date(`${parts[2]}-${parts[1]}-${parts[0]}`).getTime() || 0;
+    function parseSeitTs(seitStr) {
+      if (!seitStr || seitStr === '-') return 0;
+      const m = seitStr.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+      if (!m) return 0;
+      return new Date(`${m[3]}-${m[2]}-${m[1]}`).getTime() || 0;
     }
 
-    async function loadData(forceRefresh = false) {
-      const statusEl = document.getElementById('lastUpdate');
-      if (!forceRefresh) {
-        try {
-          const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
-          if (cached && (Date.now() - cached.savedAt < CACHE_TTL) && Array.isArray(cached.data?.players)) {
-            renderAll(cached.data, true);
-            return;
-          }
-        } catch (e) { }
-      }
-
-      statusEl.textContent = 'Lade aktuelle data.json...';
-      try {
-        const res = await fetch(`./data.json?t=${Date.now()}`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), data }));
-        renderAll(data, false);
-      } catch (err) {
-        statusEl.textContent = 'Fehler beim Laden der data.json (bitte GitHub Action einmalig ausführen).';
-        document.getElementById('tbody').innerHTML = `<tr><td colspan="7" class="empty">Noch keine Daten vorhanden. Starte unter GitHub → Actions einmal den Sync-Workflow.</td></tr>`;
-      }
-    }
-
-    function renderAll(data, fromCache) {
-      allPlayers = data.players || [];
-      const dt = data.updatedAt ? new Date(data.updatedAt).toLocaleString('de-AT', { dateStyle: 'short', timeStyle: 'short' }) : 'unbekannt';
-      document.getElementById('lastUpdate').textContent = `Stand: ${dt} (${allPlayers.length} Spieler${fromCache ? ' · Cache' : ''})`;
-      renderKpis();
-      renderTable();
-    }
-
-    function renderKpis() {
-      const count = allPlayers.length;
-      if (!count) return;
-      const avgPts = Math.round(allPlayers.reduce((s, p) => s + (p.punkte || 0), 0) / count);
-      const validApn = allPlayers.map(p => p.apnNum).filter(v => typeof v === 'number' && v > 0);
-      const maxApn = validApn.length ? Math.max(...validApn).toFixed(3).replace('.', ',') : '-';
-      const validEff = allPlayers.map(p => p.effNum).filter(v => typeof v === 'number' && v > 0);
-      const avgEff = validEff.length ? (validEff.reduce((s, v) => s + v, 0) / validEff.length).toFixed(1).replace('.', ',') + '%' : '-';
+    function renderKPIs() {
+      if (!players.length) return;
+      const totalPts = players.reduce((s, p) => s + (p.punkte || 0), 0);
+      const validApn = players.filter(p => (p.apn || 0) > 0);
+      const avgApn = validApn.length ? (validApn.reduce((s, p) => s + p.apn, 0) / validApn.length).toFixed(2) : '-';
+      const validEff = players.filter(p => (p.eff || 0) > 0);
+      const avgEff = validEff.length ? (validEff.reduce((s, p) => s + p.eff, 0) / validEff.length).toFixed(1) + '%' : '-';
+      const totalMatches = players.reduce((s, p) => s + (p.matches || 0), 0);
 
       document.getElementById('kpis').innerHTML = `
-    <div class="kpi-card"><div class="kpi-title">Erfasste Spieler</div><div class="kpi-val">${count}</div><div class="kpi-sub">Herren Rangliste</div></div>
-    <div class="kpi-card"><div class="kpi-title">Ø Punkte</div><div class="kpi-val">${avgPts.toLocaleString('de-AT')}</div><div class="kpi-sub">Durchschnitt</div></div>
-    <div class="kpi-card"><div class="kpi-title">Höchster APN</div><div class="kpi-val">${maxApn}</div><div class="kpi-sub">Top-Rating</div></div>
-    <div class="kpi-card"><div class="kpi-title">Ø Effektivität</div><div class="kpi-val">${avgEff}</div><div class="kpi-sub">Siegquote</div></div>
-  `;
+        <div class="card"><div class="card-label">Erfasste Spieler</div><div class="card-val">${players.length}</div></div>
+        <div class="card"><div class="card-label">Ø APN Wert</div><div class="card-val">${avgApn}</div></div>
+        <div class="card"><div class="card-label">Ø Effektivität</div><div class="card-val">${avgEff}</div></div>
+        <div class="card"><div class="card-label">Gespielte Matches</div><div class="card-val">${totalMatches.toLocaleString('de-AT')}</div></div>
+      `;
     }
 
     function renderTable() {
-      const q = document.getElementById('searchInput').value.trim().toLowerCase();
-      let list = allPlayers.filter(p => !q || (p.name && p.name.toLowerCase().includes(q)));
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      const sortVal = document.getElementById('sort').value;
 
-      const [field, dir] = currentSort.split('_');
-      const mult = dir === 'asc' ? 1 : -1;
+      let list = players.filter(p => !q || p.name.toLowerCase().includes(q));
 
       list.sort((a, b) => {
-        if (field === 'platz') return (a.platz - b.platz);
-        if (field === 'punkte') return ((a.punkte || 0) - (b.punkte || 0)) * mult;
-        if (field === 'apn') return ((a.apnNum ?? -1) - (b.apnNum ?? -1)) * mult;
-        if (field === 'matches') return ((a.mNum ?? -1) - (b.mNum ?? -1)) * mult;
-        if (field === 'eff') return ((a.effNum ?? -1) - (b.effNum ?? -1)) * mult;
-        if (field === 'seit') {
-          const ta = parseDateTs(a.seitT);
-          const tb = parseDateTs(b.seitT);
-          if (!ta && !tb) return 0;
-          if (!ta) return 1;
-          if (!tb) return -1;
-          return (ta - tb) * mult;
+        if (sortVal === 'platz_asc') return a.platz - b.platz;
+        if (sortVal === 'punkte_desc') return (b.punkte || 0) - (a.punkte || 0);
+        if (sortVal === 'punkte_asc') return (a.punkte || 0) - (b.punkte || 0);
+        if (sortVal === 'apn_desc') return (b.apn || 0) - (a.apn || 0);
+        if (sortVal === 'apn_asc') return (a.apn || 0) - (b.apn || 0);
+        if (sortVal === 'matches_desc') return (b.matches || 0) - (a.matches || 0);
+        if (sortVal === 'matches_asc') return (a.matches || 0) - (b.matches || 0);
+        if (sortVal === 'eff_desc') return (b.eff || 0) - (a.eff || 0);
+        if (sortVal === 'eff_asc') return (a.eff || 0) - (b.eff || 0);
+        if (sortVal === 'seit_desc') return parseSeitTs(b.seit) - parseSeitTs(a.seit);
+        if (sortVal === 'seit_asc') {
+          const tsA = parseSeitTs(a.seit) || Infinity;
+          const tsB = parseSeitTs(b.seit) || Infinity;
+          return tsA - tsB;
         }
         return 0;
       });
 
-      const tbody = document.getElementById('tbody');
-      if (!list.length) {
-        tbody.innerHTML = `<tr><td colspan="7" class="empty">Keine Spieler gefunden.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = list.map(p => {
-        const avatarHtml = p.bild
-          ? `<img class="avatar" src="${p.bild}" alt="" loading="lazy">`
+      document.getElementById('tbody').innerHTML = list.map(p => {
+        const avatar = p.bild
+          ? `<img class="avatar" src="${p.bild}" loading="lazy">`
           : `<div class="avatar"></div>`;
-        const flagHtml = p.flag
-          ? `<img class="flag-icon" src="${p.flag}" alt="" loading="lazy">`
+        const flag = p.flag
+          ? `<img class="flag" src="${p.flag}" alt="Flag" loading="lazy">`
           : '';
-        const rankClass = p.platz <= 3 ? 'rank-num rank-top' : 'rank-num';
-
         return `
-      <tr>
-        <td><span class="${rankClass}">#${p.platz}</span></td>
-        <td>
-          <div class="player-cell">
-            ${avatarHtml}
-            ${flagHtml}
-            <a class="player-link" href="${p.url}" target="_blank" rel="noopener">${p.name}</a>
-          </div>
-        </td>
-        <td><strong>${(p.punkte || 0).toLocaleString('de-AT')}</strong></td>
-        <td><span class="badge">${p.apnT || '-'}</span></td>
-        <td>${p.mT || '-'}</td>
-        <td>${p.effT || '-'}</td>
-        <td>${p.seitT || '-'}</td>
-      </tr>
-    `;
+          <tr>
+            <td><strong>#${p.platz}</strong></td>
+            <td>
+              <div class="player">
+                ${avatar}
+                ${flag}
+                <a class="link" href="https://padel-austria.at${p.url}" target="_blank" rel="noopener">${p.name}</a>
+              </div>
+            </td>
+            <td><strong>${(p.punkte || 0).toLocaleString('de-AT')}</strong></td>
+            <td><span class="badge">${p.apnT || '-'}</span></td>
+            <td>${p.mT || '-'}</td>
+            <td>${p.effT || '-'}</td>
+            <td>${p.seitT || p.seit || '-'}</td>
+          </tr>
+        `;
       }).join('');
     }
 
-    document.getElementById('searchInput').addEventListener('input', renderTable);
-    document.getElementById('sortSelect').addEventListener('change', (e) => {
-      currentSort = e.target.value;
-      renderTable();
-    });
+    async function loadData(force = false) {
+      if (!force) {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached);
+            players = parsed.players || [];
+            updateStatus(parsed);
+            renderKPIs();
+            renderTable();
+          } catch (e) {}
+        }
+      }
+
+      try {
+        const res = await fetch('./data.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Keine data.json');
+        const data = await res.json();
+        players = data.players || [];
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        updateStatus(data);
+        renderKPIs();
+        renderTable();
+      } catch (e) {
+        if (!players.length) {
+          document.getElementById('status').textContent = 'Warte auf data.json...';
+        }
+      }
+    }
+
+    function updateStatus(data) {
+      if (!data.lastUpdated) return;
+      const d = new Date(data.lastUpdated);
+      document.getElementById('status').textContent =
+        `Stand: ${d.toLocaleDateString('de-AT')} ${d.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' })} (${players.length} Spieler)`;
+    }
+
+    document.getElementById('search').addEventListener('input', renderTable);
+    document.getElementById('sort').addEventListener('change', renderTable);
     document.getElementById('reloadBtn').addEventListener('click', () => {
       localStorage.removeItem(CACHE_KEY);
       loadData(true);
@@ -430,15 +181,11 @@
     document.querySelectorAll('th[data-col]').forEach(th => {
       th.addEventListener('click', () => {
         const col = th.dataset.col;
+        const sel = document.getElementById('sort');
         if (col === 'platz') {
-          currentSort = 'platz_asc';
-        } else {
-          const isDesc = currentSort === `${col}_desc`;
-          currentSort = isDesc ? `${col}_asc` : `${col}_desc`;
-        }
-        const sel = document.getElementById('sortSelect');
-        if ([...sel.options].some(o => o.value === currentSort)) {
-          sel.value = currentSort;
+          sel.value = 'platz_asc';
+        } else if (col !== 'name') {
+          sel.value = sel.value === `${col}_desc` ? `${col}_asc` : `${col}_desc`;
         }
         renderTable();
       });
@@ -447,5 +194,4 @@
     loadData();
   </script>
 </body>
-
 </html>
