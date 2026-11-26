@@ -51,7 +51,7 @@
 
       const updateKpis = () => {
         if (!liste.length) return;
-        document.getElementById('pageTitle').textContent = 'Herren Rangliste (Top ' + liste.length + ')';
+        document.getElementById('pageTitle').textContent = 'Herren Ranking (Top ' + liste.length + ')';
         const topEff = liste.reduce((a, b) => b.effZ > a.effZ ? b : a, liste[0]);
         const topM = liste.reduce((a, b) => b.mZ > a.mZ ? b : a, liste[0]);
         const topSeit = liste.reduce((a, b) => b.seitZ < a.seitZ ? b : a, liste[0]);
