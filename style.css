@@ -1,0 +1,170 @@
+body {
+  background: #0b0f17;
+  color: #f8fafc;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  padding: 25px;
+}
+
+.app {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.btn {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid #334155;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn:hover {
+  background: #334155;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #111827;
+  border: 1px solid #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.card-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card-val {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.input,
+.select {
+  background: #111827;
+  color: #fff;
+  border: 1px solid #1e293b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.input {
+  flex: 1;
+  min-width: 240px;
+}
+
+.table-box {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1e293b;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+th:hover {
+  color: #fff;
+}
+
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #1e293b;
+  white-space: nowrap;
+}
+
+tr:hover {
+  background: #1a2333;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1e293b;
+}
+
+.flag {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.link {
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+.badge {
+  background: #1e293b;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
