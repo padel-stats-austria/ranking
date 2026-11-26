@@ -189,13 +189,13 @@ body {
 }
 
 .r2 {
-    background: rgba(203, 213, 225, .15);
+    background: rgba(255, 255, 255, 0.15);
     color: #e2e8f0;
     border: 1px solid rgba(203, 213, 225, .4)
 }
 
 .r3 {
-    background: rgba(217, 119, 6, .15);
+    background: rgba(217, 119, 6, 0.14);
     color: #fb923c;
     border: 1px solid rgba(217, 119, 6, .4)
 }
