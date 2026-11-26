@@ -11,7 +11,8 @@ const randomPause = () => sleep(1500 + Math.floor(Math.random() * 1000));
 async function fetchHTML(url) {
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'APU-Analytics-Viewer/1.0 (Respectful-Daily-Sync)'
+      'User-Agent': 'APU-Analytics-Viewer/1.0 (Respectful-Daily-Sync)',
+      'Accept': 'text/html,application/xhtml+xml'
     }
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} für ${url}`);
