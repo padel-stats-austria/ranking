@@ -1,0 +1,35 @@
+name: APU Stats Update
+
+on:
+  schedule:
+    - cron: '30 1 * * *' # Läuft täglich um 01:30 UTC (02:30/03:30 Uhr Österreich)
+  workflow_dispatch:      # Erlaubt manuellen Start per Klick
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pakete installieren
+        run: npm install
+
+      - name: Daten aktualisieren
+        run: node update.mjs
+
+      - name: Änderungen speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@://github.com"
+          git add data.json
+          git commit -m "Update Padel Stats" || exit 0
+          git push
