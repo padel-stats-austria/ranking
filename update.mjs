@@ -72,34 +72,48 @@ async function run() {
     const $ = cheerio.load(html);
     let addedOnPage = 0;
 
-    console.log('DEBUG Titel:', $('title').text().trim());
-    console.log('DEBUG Body-Text:', $('body').text().replace(/\s+/g, ' ').slice(0, 300));
-
-    $('table tbody tr').each((_, tr) => {
-      const tds = $(tr).find('td');
-      if (tds.length < 3) return;
-      const link = tds.eq(1).find('a');
-      if (!link.length) return;
-
+    // Direkt alle Spieler-Links suchen (egal ob in <table>, <tbody> oder <div>)
+    $('a[href*="/players/"]').each((_, a) => {
+      const link = $(a);
       const rawUrl = link.attr('href');
       if (!rawUrl) return;
       const fullUrl = rawUrl.startsWith('http') ? rawUrl : `${BASE_URL}${rawUrl}`;
 
       if (seenUrls.has(fullUrl)) return;
-      seenUrls.add(fullUrl);
-
       const name = link.text().trim();
-      const platz = parseInt(tds.eq(0).text().trim(), 10) || 0;
-      const punkte = parseInt(tds.eq(2).text().replace(/\D/g, ''), 10) || 0;
+      if (!name) return;
 
-      if (name) {
-        currentList.push({ platz, name, url: fullUrl, punkte });
-        addedOnPage++;
+      // Umschließende Zeile (<tr> oder übergeordnetes Zeilen-Element) suchen
+      const row = link.closest('tr').length ? link.closest('tr') : link.parent().parent();
+      const cells = row.children();
+
+      let platz = 0;
+      let punkte = 0;
+
+      if (cells.length >= 3) {
+        platz = parseInt(cells.eq(0).text().replace(/\D/g, ''), 10) || 0;
+        punkte = parseInt(cells.eq(cells.length - 1).text().replace(/\D/g, ''), 10) || 0;
+      } else {
+        // Fallback: Zahlen aus dem gesamten Zeilentext holen (erste Zahl = Platz, größte Zahl = Punkte)
+        const nums = row.text().match(/\d+/g)?.map(Number) || [];
+        if (nums.length >= 2) {
+          platz = nums[0];
+          punkte = nums[nums.length - 1];
+        }
       }
+
+      if (!platz) platz = (page - 1) * 50 + addedOnPage + 1;
+
+      seenUrls.add(fullUrl);
+      currentList.push({ platz, name, url: fullUrl, punkte });
+      addedOnPage++;
     });
 
     console.log(`Seite ${page}: ${addedOnPage} Spieler gelesen.`);
-    if (addedOnPage === 0) break;
+    if (addedOnPage === 0) {
+      console.log('DEBUG Links gefunden:', $('a').length, '| Beispiel-Hrefs:', $('a').slice(0, 15).map((_, el) => $(el).attr('href')).get().join(', '));
+      break;
+    }
     await randomPause();
   }
 
