@@ -12,7 +12,7 @@ async function fetchHTML(url) {
   const res = await fetch(url, {
     headers: {
       'User-Agent': 'APU-Analytics-Viewer/1.0 (Respectful-Daily-Sync)',
-      'Accept': 'text/html,application/xhtml+xml'
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     }
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} für ${url}`);
@@ -58,10 +58,11 @@ async function run() {
   if (fs.existsSync(DATA_FILE)) {
     try {
       oldData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-    } catch (e) { }
+    } catch (e) {}
   }
 
-  const oldMap = new Map((oldData.data || oldData.players || []).map((p) => [p.url, p]));
+  const oldList = oldData.data || oldData.players || [];
+  const oldMap = new Map(oldList.map((p) => [p.url, p]));
   const seenUrls = new Set();
   const currentList = [];
 
@@ -94,6 +95,7 @@ async function run() {
       }
     });
 
+    console.log(`Seite ${page}: ${addedOnPage} Spieler gelesen.`);
     if (addedOnPage === 0) break;
     await randomPause();
   }
@@ -199,12 +201,17 @@ async function run() {
   }
 
   const now = new Date();
-  const datum = now.toLocaleDateString('de-AT') + ' ' + now.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' });
+  const datum =
+    now.toLocaleDateString('de-AT') +
+    ' ' +
+    now.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' });
 
   const output = {
     datum,
+    lastUpdated: now.toISOString(),
     totalPlayers: updatedPlayers.length,
-    data: updatedPlayers
+    data: updatedPlayers,
+    players: updatedPlayers // Rückwärtskompatibilität für dein Frontend
   };
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
