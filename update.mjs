@@ -1,8 +1,8 @@
 import fs from 'fs';
 import * as cheerio from 'cheerio';
 
-const BASE_URL = 'https://www.padel-austria.at';
-const PAGES = 2; // 1 Seite = 50 Spieler zum Testen (für Top 500 auf 10, für Top 1000 auf 20 ändern)
+const BASE_URL = 'https://padel-austria.at';
+const PAGES = 2; // 1 = Top 50, 10 = Top 500, 20 = Top 1000
 const DATA_FILE = './data.json';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -19,183 +19,201 @@ async function fetchHTML(url) {
   return await res.text();
 }
 
-function getH4($, label) {
-  let val = null;
+function getH4Value($, label) {
+  let val = '';
   $('h4').each((_, el) => {
-    if ($(el).text().trim() === label) {
+    const txt = $(el).text().trim();
+    if (txt.toLowerCase().includes(label.toLowerCase())) {
       const next = $(el).next();
-      if (next.length) val = next.text().trim();
+      if (next.length) {
+        val = next.text().trim();
+      } else if (txt.includes(':')) {
+        val = txt.split(':')[1].trim();
+      }
     }
   });
   return val;
 }
 
+function extractOldestDate($) {
+  const dates = [];
+  const textToScan = $('body').text();
+  const matches = textToScan.match(/\b(\d{2})\.(\d{2})\.(20\d{2})\b/g) || [];
+  for (const dStr of matches) {
+    const [d, m, y] = dStr.split('.');
+    const ts = new Date(`${y}-${m}-${d}`).getTime();
+    if (!isNaN(ts)) {
+      dates.push({ str: dStr, ts });
+    }
+  }
+  if (!dates.length) return '';
+  dates.sort((a, b) => a.ts - b.ts);
+  return dates[0].str;
+}
+
 async function run() {
-  let oldMap = new Map();
+  const oldMap = new Map();
   if (fs.existsSync(DATA_FILE)) {
     try {
-      const oldJson = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-      for (const p of (oldJson.data || [])) {
+      const oldData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+      for (const p of (oldData.players || [])) {
         if (p.url) oldMap.set(p.url, p);
       }
-      console.log(`Cache geladen: ${oldMap.size} bestehende Spieler gefunden.`);
+      console.log(`Cache geladen: ${oldMap.size} bestehende Spieler.`);
     } catch (e) {
-      console.log('Keine gültige alte data.json gefunden, starte kompletten Neuaufbau.');
+      console.log('Keine gültige data.json gefunden, starte neu.');
     }
   }
 
+  const seenUrls = new Set();
   const currentList = [];
 
-  for (let p = 1; p <= PAGES; p++) {
-    console.log(`Lade Ranglisten-Seite ${p} von ${PAGES}...`);
-    const html = await fetchHTML(`${BASE_URL}/rankings/males?page=${p}`);
+  for (let page = 1; page <= PAGES; page++) {
+    console.log(`Lade Rangliste Seite ${page}/${PAGES}...`);
+    const html = await fetchHTML(`${BASE_URL}/rankings/males?page=${page}`);
     const $ = cheerio.load(html);
+    let added = 0;
 
-    $('tbody tr').each((_, tr) => {
-      const td = $(tr).find('td');
-      if (td.length >= 4) {
-        const a = $(tr).find('a').first();
-        const href = a.attr('href');
-        const fullUrl = href ? (href.startsWith('http') ? href : `${BASE_URL}${href}`) : null;
-        const platz = parseInt($(td[0]).text().trim(), 10) || 99999;
-        const name = $(td[2]).text().trim();
-        const punkte = $(td[3]).text().trim();
+    $('table tbody tr').each((_, tr) => {
+      const tds = $(tr).find('td');
+      const link = $(tr).find('a[href*="/players/"]').first();
+      if (tds.length >= 4 && link.length) {
+        const href = link.attr('href').trim();
+        const url = href.startsWith('http') ? href : `${BASE_URL}${href}`;
+        if (seenUrls.has(url)) return;
+        seenUrls.add(url);
 
-        if (name && fullUrl) {
-          currentList.push({ platz, name, punkte, url: fullUrl });
+        const rank = parseInt($(tds[0]).text().trim(), 10) || 0;
+        const name = link.text().trim();
+        const points = parseInt($(tds[3]).text().replace(/\D/g, ''), 10) || 0;
+
+        if (name && url) {
+          currentList.push({ rank, name, points, url });
+          added++;
         }
       }
     });
 
-    await randomDelay(1000, 1800);
+    console.log(`Seite ${page}: ${added} eindeutige Spieler gefunden.`);
+    if (added === 0) break;
+    await randomDelay(1000, 1600);
   }
 
-  console.log(`${currentList.length} Spieler in der aktuellen Rangliste gefunden.`);
-
-  const updatedList = [];
+  const updatedPlayers = [];
   let fetchedProfiles = 0;
 
   for (let i = 0; i < currentList.length; i++) {
     const item = currentList[i];
     const old = oldMap.get(item.url);
 
-    // Delta-Check: Wenn Punkte gleich sind und Stammdaten vorhanden -> kein Profil-Abruf nötig
-    if (old && old.punkte === item.punkte && old.apnT && old.apnT !== '–' && old.seitT && old.seitT !== '–') {
-      updatedList.push({
+    // Nur überspringen, wenn Punkte gleich sind UND alle Stammdaten (inkl. Flagge & echtes Startdatum) da sind
+    if (
+      old &&
+      old.points === item.points &&
+      old.apn !== undefined &&
+      old.matches !== undefined &&
+      old.seit &&
+      old.seit !== '-' &&
+      old.flag !== undefined
+    ) {
+      updatedPlayers.push({
         ...old,
-        platz: item.platz,
+        rank: item.rank,
         name: item.name
       });
       continue;
     }
 
-    console.log(`[${i + 1}/${currentList.length}] Lade Profil: ${item.name} (${old ? old.punkte + ' -> ' : 'Neu: '}${item.punkte})`);
+    console.log(`[${i + 1}/${currentList.length}] Lade Profil: ${item.name} (${old ? old.points + ' -> ' : 'Neu: '}${item.points})`);
     try {
       const pHtml = await fetchHTML(item.url);
-      const $p = cheerio.load(pHtml);
+      const $ = cheerio.load(pHtml);
 
-      // Profilbild nur holen, wenn noch nicht gespeichert
-      let bild = old?.bild || '';
-      if (!bild) {
-        const img = $p('.col-md-3 img').first().length ? $p('.col-md-3 img').first() : $p('img[src*="/uploads/player/"]').first();
-        const src = img.attr('src') || '';
-        if (src && !src.includes('default')) {
-          bild = src.startsWith('http') ? src : `${BASE_URL}${src}`;
-        }
+      const apnT = getH4Value($, 'APN');
+      const apn = apnT ? parseFloat(apnT.replace(',', '.')) : (old?.apn ?? null);
+
+      const mT = getH4Value($, 'Matches Gespielt');
+      const matches = mT ? (parseInt(mT.replace(/\D/g, ''), 10) || 0) : (old?.matches ?? 0);
+
+      const wT = getH4Value($, 'Matches Gewonnen');
+      const wins = wT ? (parseInt(wT.replace(/\D/g, ''), 10) || 0) : (old?.wins ?? 0);
+
+      const effT = getH4Value($, 'Effektivität');
+      const eff = effT ? (parseFloat(effT.replace('%', '').replace(',', '.')) || 0) : (old?.eff ?? 0);
+
+      // Profilbild (einmalig)
+      let img = old?.img || '';
+      if (!img) {
+        const imgSrc = $('img[src*="/uploads/player"]').first().attr('src');
+        if (imgSrc) img = imgSrc.startsWith('http') ? imgSrc : `${BASE_URL}${imgSrc}`;
       }
 
-      // APN, Matches Gespielt, Effektivität exakt wie im Original-Skript auslesen
-      let apnT = '–', apnZ = -1;
-      const apn = getH4($p, 'APN');
-      if (apn) {
-        apnT = apn;
-        apnZ = parseFloat(apn.replace(',', '.')) || -1;
+      // Flagge (einmalig)
+      let flag = old?.flag || '';
+      if (!flag) {
+        const flagSrc = $('img[src*="flagcdn.com"]').first().attr('src');
+        if (flagSrc) flag = flagSrc.startsWith('http') ? flagSrc : `https:${flagSrc}`;
       }
 
-      let mT = '–', mZ = -1;
-      const m = getH4($p, 'Matches Gespielt');
-      if (m) {
-        mT = m;
-        mZ = parseInt(m, 10) || -1;
-      }
-
-      let effT = '–', effZ = -1;
-      const eff = getH4($p, 'Effektivität');
-      if (eff) {
-        effT = eff;
-        effZ = parseFloat(eff.replace('%', '').replace(',', '.')) || -1;
-      }
-
-      // "Aktiv seit" nur abrufen, wenn noch nicht gespeichert
-      let seitT = old?.seitT || '–';
-      let seitZ = old?.seitZ || 9e15;
-
-      if (!old?.seitT || old.seitT === '–') {
+      // Aktiv seit: Höchste Seitenzahl in der Pagination ermitteln und letzte Seite laden
+      let seit = (old?.seit && old.seit !== '-') ? old.seit : '';
+      if (!seit) {
         let maxP = 1;
-        $p('.pagination a, nav a').each((_, a) => {
-          const n = parseInt($p(a).text().trim(), 10);
-          if (!isNaN(n) && n > maxP) maxP = n;
+        $('.pagination a, nav a, a[href*="?page="]').each((_, a) => {
+          const href = $(a).attr('href') || '';
+          const m = href.match(/[?&]page=(\d+)/);
+          if (m) {
+            const pNum = parseInt(m[1], 10);
+            if (pNum > maxP) maxP = pNum;
+          }
+          const txtNum = parseInt($(a).text().trim(), 10);
+          if (!isNaN(txtNum) && txtNum > maxP) maxP = txtNum;
         });
 
-        let $lDoc = $p;
         if (maxP > 1) {
-          await randomDelay(1000, 1600);
-          const lHtml = await fetchHTML(`${item.url}?page=${maxP}`);
-          $lDoc = cheerio.load(lHtml);
-        }
-
-        const smalls = $lDoc('small').toArray();
-        for (let j = smalls.length - 1; j >= 0; j--) {
-          const match = $lDoc(smalls[j]).text().match(/(\d{2})\.(\d{2})\.(\d{4})/);
-          if (match) {
-            seitT = match[0];
-            seitZ = new Date(`${match[3]}-${match[2]}-${match[1]}`).getTime();
-            break;
-          }
+          await randomDelay(900, 1500);
+          const lastUrl = `${item.url}${item.url.includes('?') ? '&' : '?'}page=${maxP}`;
+          const lastHtml = await fetchHTML(lastUrl);
+          const $last = cheerio.load(lastHtml);
+          seit = extractOldestDate($last) || extractOldestDate($) || '-';
+        } else {
+          seit = extractOldestDate($) || '-';
         }
       }
 
-      updatedList.push({
-        platz: item.platz,
+      updatedPlayers.push({
+        rank: item.rank,
         name: item.name,
-        punkte: item.punkte,
+        points: item.points,
+        apn,
+        apnT: apnT || '-',
+        matches,
+        wins,
+        eff,
+        effT: effT || '-',
+        img,
+        flag,
+        seit,
         url: item.url,
-        bild,
-        apnT,
-        apnZ,
-        mT,
-        mZ,
-        effT,
-        effZ,
-        seitT,
-        seitZ
+        prevRank: old ? old.rank : item.rank
       });
 
       fetchedProfiles++;
       await randomDelay(1200, 2000);
     } catch (err) {
       console.error(`Fehler bei ${item.name}:`, err.message);
-      updatedList.push(old ? { ...old, platz: item.platz, punkte: item.punkte } : {
-        platz: item.platz,
-        name: item.name,
-        punkte: item.punkte,
-        url: item.url,
-        bild: '', apnT: '–', apnZ: -1, mT: '–', mZ: -1, effT: '–', effZ: -1, seitT: '–', seitZ: 9e15
-      });
+      if (old) updatedPlayers.push({ ...old, rank: item.rank, points: item.points });
     }
   }
 
-  const now = new Date();
-  const datumStr = now.toLocaleDateString('de-AT') + ', ' + now.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Vienna' }) + ' Uhr';
-
   const output = {
-    updatedAt: now.toISOString(),
-    datum: datumStr,
-    data: updatedList
+    updatedAt: new Date().toISOString(),
+    totalPlayers: updatedPlayers.length,
+    players: updatedPlayers
   };
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(output, null, 2));
-  console.log(`Fertig! ${fetchedProfiles} Profile aktualisiert, ${updatedList.length} Spieler gespeichert.`);
+  console.log(`Fertig! ${fetchedProfiles} Profile aktualisiert, ${updatedPlayers.length} eindeutige Spieler gespeichert.`);
 }
 
 run();
