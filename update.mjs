@@ -2,7 +2,7 @@ import fs from 'fs';
 import * as cheerio from 'cheerio';
 
 const BASE_URL = 'https://padel-austria.at';
-const PAGES = 20; // 20 Seiten x 50 Spieler = Top 1.000
+const PAGES = 1; // 20 Seiten x 50 Spieler = Top 1.000
 const DATA_FILE = './data.json';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
