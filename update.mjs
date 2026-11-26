@@ -168,8 +168,8 @@ async function run() {
       }
 
       let seitT = hasValidSeit ? existing.seitT : '';
+      let maxP = 1;
       if (!seitT) {
-        let maxP = 1;
         $p('a[href*="page="]').each((_, a) => {
           const href = $p(a).attr('href') || '';
           const m = href.match(/page=(\d+)/);
@@ -186,7 +186,7 @@ async function run() {
         }
       }
 
-      console.log(`   -> ${item.name}: APN=${apnT}, Matches=${mT}, Aktiv seit=${seitT} (Seiten: ${maxP || 1})`);
+      console.log(`   -> ${item.name}: APN=${apnT}, Matches=${mT}, Aktiv seit=${seitT} (Seiten: ${maxP})`);
 
       updatedPlayers.push({
         platz: item.platz,
