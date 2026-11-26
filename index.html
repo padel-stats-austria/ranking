@@ -130,6 +130,8 @@
         });
       };
 
+      const formatStand = (d) => d && d !== 'aktuell' ? d.replace(' ', ' | ') + ' Uhr' : 'aktuell';
+
       const gespeichert = localStorage.getItem(cacheKey);
       if (gespeichert) {
         try {
@@ -162,7 +164,7 @@
               data: liste
             }));
           } catch (e) { }
-          st.textContent = '● Stand: ' + formatStand(parsed.datum);
+          st.textContent = '● Stand: ' + formatStand(json.datum);
           st.style.color = '#34d399';
           st.style.borderColor = 'rgba(16,185,129,.4)';
           document.getElementById('reloadBtn').style.display = 'inline-block';
