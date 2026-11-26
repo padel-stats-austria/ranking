@@ -1,7 +1,7 @@
 import fs from 'fs';
 import * as cheerio from 'cheerio';
 
-const PAGES = 4; // 5 = Top 250 (lädt jetzt die nächsten 200 nach), 10 = Top 500
+const PAGES = 6; // 5 = Top 250 (lädt jetzt die nächsten 200 nach), 10 = Top 500
 const BASE_URL = 'https://padel-austria.at';
 const DATA_FILE = './data.json';
 
