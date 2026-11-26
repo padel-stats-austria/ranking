@@ -1,180 +1,221 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>APU Herren Stats</title>
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f8fafc;
-            --muted: #94a3b8;
-            --accent: #38bdf8;
-            --green: #4ade80;
-            --red: #f87171;
-            --border: #334155;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background: var(--bg); color: var(--text); padding: 16px; max-width: 1100px; margin: 0 auto; }
-        header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-        h1 { font-size: 1.4rem; color: var(--accent); }
-        .meta { font-size: 0.85rem; color: var(--muted); }
-        .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
-        input, select, button {
-            background: var(--card); color: var(--text); border: 1px solid var(--border);
-            padding: 10px 14px; border-radius: 8px; font-size: 0.95rem;
-        }
-        input { flex: 1; min-width: 200px; }
-        button { cursor: pointer; font-weight: 600; }
-        button.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
-        .table-wrap { overflow-x: auto; background: var(--card); border-radius: 12px; border: 1px solid var(--border); }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        th { color: var(--muted); font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
-        th:hover { color: var(--text); }
-        tr:hover { background: rgba(255,255,255,0.03); }
-        .fav-btn { background: none; border: none; font-size: 1.2rem; padding: 0; cursor: pointer; color: var(--muted); }
-        .fav-btn.is-fav { color: #facc15; }
-        .player-cell { display: flex; align-items: center; gap: 10px; }
-        .avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #334155; }
-        a { color: var(--text); text-decoration: none; font-weight: 500; }
-        a:hover { color: var(--accent); text-decoration: underline; }
-        .trend-up { color: var(--green); font-size: 0.8rem; margin-left: 4px; }
-        .trend-down { color: var(--red); font-size: 0.8rem; margin-left: 4px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Austrian Padel Union • Analytics</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #090d16; color: #f3f4f6; font-family: system-ui, sans-serif; overflow-x: hidden; }
+  .w { max-width: 1180px; margin: 0 auto; padding: 30px 20px 60px; }
+  .h { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+  .t { margin: 0; font-size: 28px; font-weight: 800; color: #fff; }
+  .b-wrap { display: flex; align-items: center; gap: 10px; }
+  .b { padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; background: #1e293b; color: #34d399; border: 1px solid rgba(16,185,129,.4); }
+  .btn-rel { background: #1f2937; color: #d1d5db; border: 1px solid #374151; padding: 6px 12px; border-radius: 99px; font-size: 12px; cursor: pointer; }
+  .btn-rel:hover { background: #374151; color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .kpi { background: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 16px 20px; }
+  .kl { font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: #9ca3af; margin-bottom: 6px; }
+  .kv { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .ctrl { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; background: #111827; padding: 14px; border-radius: 12px; border: 1px solid #1f2937; }
+  .inp, .sel { background: #090d16; color: #fff; border: 1px solid #374151; padding: 10px 14px; border-radius: 8px; font-size: 14px; outline: none; }
+  .inp { flex: 1; min-width: 220px; }
+  .card { background: #111827; border: 1px solid #1f2937; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); overflow-x: auto; }
+  .grid-row { display: grid; grid-template-columns: 65px 2.4fr 95px 85px 85px 115px 110px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #1f2937; font-size: 14px; gap: 8px; min-width: 780px; }
+  .grid-head { position: sticky; top: 0; background: rgba(17,24,39,.95); backdrop-filter: blur(8px); font-size: 12px; text-transform: uppercase; font-weight: 700; color: #9ca3af; z-index: 10; border-radius: 14px 14px 0 0; }
+  .grid-body:hover { background: rgba(255,255,255,.03); }
+  .rk { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; font-weight: 700; font-size: 13px; background: #1f2937; color: #d1d5db; }
+  .r1 { background: rgba(250,204,21,.15); color: #facc15; border: 1px solid rgba(250,204,21,.4); }
+  .r2 { background: rgba(203,213,225,.15); color: #e2e8f0; border: 1px solid rgba(203,213,225,.4); }
+  .r3 { background: rgba(217,119,6,.15); color: #fb923c; border: 1px solid rgba(217,119,6,.4); }
+  .pc { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .pi { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid #374151; background: #1f2937; flex-shrink: 0; }
+  .pn { width: 42px; height: 42px; border-radius: 50%; background: #1e293b; border: 2px solid #334155; color: #94a3b8; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .pl { color: #f9fafb; text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pl:hover { color: #34d399; }
+  .apn { background: rgba(251,191,36,.1); color: #fbbf24; padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+  .ew { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .eb { width: 70px; height: 5px; background: #1f2937; border-radius: 99px; overflow: hidden; }
+  .ef { height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 99px; }
+  .tr { text-align: right; }
+</style>
 </head>
 <body>
-    <header>
-        <h1>🎾 APU Herren Rangliste & Stats</h1>
-        <div class="meta" id="lastUpdate">Lade Daten...</div>
-    </header>
-
-    <div class="controls">
-        <input type="text" id="search" placeholder="Spieler suchen...">
-        <button id="favFilterBtn">⭐ Nur Favoriten</button>
-        <select id="sortSelect">
-            <option value="rank">Sortieren: Rang</option>
-            <option value="points">Sortieren: Punkte</option>
-            <option value="apn">Sortieren: APN</option>
-            <option value="eff">Sortieren: Effizienz (Pkt/Spiel)</option>
-            <option value="matches">Sortieren: Spiele</option>
-        </select>
+<div class="w">
+  <div class="h">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Austrian Padel Union • Analytics</div>
+      <h1 class="t" id="mainTitle">Herren Rangliste</h1>
     </div>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>★</th>
-                    <th>#</th>
-                    <th>Spieler</th>
-                    <th>Punkte</th>
-                    <th>APN</th>
-                    <th>Spiele</th>
-                    <th>Pkt/Spiel</th>
-                    <th>Aktiv seit</th>
-                </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-        </table>
+    <div class="b-wrap">
+      <div id="st" class="b">Lade Daten...</div>
+      <button id="reloadBtn" class="btn-rel" title="Browser-Cache leeren und aktuellste data.json laden">↻ Aktualisieren</button>
     </div>
+  </div>
+  <div id="kpis" class="kpis"></div>
+  <div id="ctrl" class="ctrl">
+    <input id="suche" class="inp" placeholder="Spielername suchen...">
+    <select id="sort" class="sel">
+      <option value="platz">Sortieren: APU Platz</option>
+      <option value="eff">Sortieren: Effektivität</option>
+      <option value="apn">Sortieren: APN</option>
+      <option value="matches">Sortieren: Matches</option>
+      <option value="seit">Sortieren: Aktiv seit (älteste)</option>
+    </select>
+  </div>
+  <div id="tw" class="card"></div>
+</div>
 
-    <script>
-        let players = [];
-        let favorites = JSON.parse(localStorage.getItem('apu_favs') || '[]');
-        let onlyFavs = false;
+<script>
+(async () => {
+  const cacheKey = 'apu_github_cache_v1';
+  const st = document.getElementById('st');
+  let liste = [];
 
-        async function loadData() {
-            const cached = localStorage.getItem('apu_cache_data');
-            const cachedTime = localStorage.getItem('apu_cache_time');
+  const updateKpis = () => {
+    if (!liste.length) return;
+    const topEff = liste.reduce((a, b) => b.effZ > a.effZ ? b : a, liste.at(0));
+    const topM = liste.reduce((a, b) => b.mZ > a.mZ ? b : a, liste.at(0));
+    const topSeit = liste.reduce((a, b) => b.seitZ < a.seitZ ? b : a, liste.at(0));
+    document.getElementById('kpis').innerHTML =
+      '<div class="kpi"><div class="kl">Beste Effektivität</div><div class="kv">' + (topEff && topEff.effZ >= 0 ? topEff.name + ' <span style="color:#34d399">(' + topEff.effT + ')</span>' : '–') + '</div></div>' +
+      '<div class="kpi"><div class="kl">Meiste Turnier-Matches</div><div class="kv">' + (topM && topM.mZ >= 0 ? topM.name + ' <span style="color:#60a5fa">(' + topM.mT + ')</span>' : '–') + '</div></div>' +
+      '<div class="kpi"><div class="kl">Längster Turnierspieler</div><div class="kv">' + (topSeit && topSeit.seitZ < 9e15 ? topSeit.name + ' <span style="color:#fbbf24;font-size:15px">(seit ' + topSeit.seitT + ')</span>' : '–') + '</div></div>';
+  };
 
-            // LocalStorage nutzen, wenn jünger als 1 Stunde
-            if (cached && cachedTime && (Date.now() - parseInt(cachedTime, 10) < 3600000)) {
-                renderJSON(JSON.parse(cached));
-                return;
-            }
+  const render = () => {
+    const q = document.getElementById('suche').value.toLowerCase();
+    const sb = document.getElementById('sort').value;
+    const f = liste.filter(x => x.name.toLowerCase().includes(q)).sort((a, b) => {
+      if (sb === 'eff') return b.effZ - a.effZ;
+      if (sb === 'apn') return b.apnZ - a.apnZ;
+      if (sb === 'matches') return b.mZ - a.mZ;
+      if (sb === 'seit') return a.seitZ - b.seitZ;
+      return a.platz - b.platz;
+    });
 
-            try {
-                const res = await fetch('./data.json?t=' + Date.now());
-                const data = await res.json();
-                localStorage.setItem('apu_cache_data', JSON.stringify(data));
-                localStorage.setItem('apu_cache_time', Date.now().toString());
-                renderJSON(data);
-            } catch (e) {
-                document.getElementById('lastUpdate').textContent = 'Noch keine data.json vorhanden. Bitte GitHub Action starten.';
-            }
+    const rows = f.map(x => {
+      const p = x.name.split(' ');
+      const ini = ((p.at(0) ? p.at(0).charAt(0) : '') + (p.at(1) ? p.at(1).charAt(0) : '')).toUpperCase();
+      const rc = x.platz === 1 ? 'rk r1' : (x.platz === 2 ? 'rk r2' : (x.platz === 3 ? 'rk r3' : 'rk'));
+      const av = x.bild ? '<img src="' + x.bild + '" class="pi" loading="lazy">' : '<div class="pn">' + ini + '</div>';
+      const bw = x.effZ > 0 ? Math.min(100, Math.round(x.effZ)) : 0;
+      const fullUrl = x.url && x.url.startsWith('http') ? x.url : ('https://www.padel-austria.at' + x.url);
+      return '<div class="grid-row grid-body">' +
+        '<div><span class="' + rc + '">' + x.platz + '</span></div>' +
+        '<div class="pc">' + av + '<a href="' + fullUrl + '" target="_blank" rel="noopener" class="pl">' + x.name + '</a></div>' +
+        '<div class="tr" style="font-weight:700;color:#fff">' + x.punkte + '</div>' +
+        '<div class="tr"><span class="apn">' + x.apnT + '</span></div>' +
+        '<div class="tr" style="color:#d1d5db">' + x.mT + '</div>' +
+        '<div class="tr"><div class="ew"><span style="color:#34d399;font-weight:700">' + x.effT + '</span><div class="eb"><div class="ef" style="width:' + bw + '%"></div></div></div></div>' +
+        '<div class="tr" style="color:#9ca3af;font-size:13px">' + x.seitT + '</div>' +
+        '</div>';
+    }).join('');
+
+    const head = '<div class="grid-row grid-head">' +
+      '<div>Platz</div>' +
+      '<div>Spieler</div>' +
+      '<div class="tr">Punkte</div>' +
+      '<div class="tr">APN</div>' +
+      '<div class="tr">Matches</div>' +
+      '<div class="tr">Effektivität</div>' +
+      '<div class="tr">Aktiv seit</div>' +
+      '</div>';
+    document.getElementById('tw').innerHTML = head + rows;
+  };
+
+  document.getElementById('suche').addEventListener('input', render);
+  document.getElementById('sort').addEventListener('change', render);
+  document.getElementById('reloadBtn').addEventListener('click', () => {
+    localStorage.removeItem(cacheKey);
+    location.reload();
+  });
+
+  const normalizeData = (rawPlayers) => {
+    return rawPlayers.map(p => {
+      const platz = p.platz ?? p.rank ?? 99999;
+      const name = p.name || 'Unbekannt';
+      const url = p.url || '';
+      const punkteRaw = p.punkte ?? p.points ?? 0;
+      const punkte = typeof punkteRaw === 'number' ? punkteRaw.toLocaleString('de-AT') : punkteRaw;
+      const bild = p.bild ?? p.img ?? '';
+
+      const apnVal = p.apnT ?? p.apn;
+      const apnT = (apnVal !== null && apnVal !== undefined && apnVal !== '' && apnVal !== '-') ? String(apnVal) : '–';
+      const apnZ = p.apnZ ?? (apnT !== '–' ? (parseFloat(apnT.replace(',', '.')) || -1) : -1);
+
+      const mVal = p.mT ?? p.matches;
+      const mT = (mVal !== null && mVal !== undefined && mVal !== '' && mVal !== 0 && mVal !== '-') ? String(mVal) : '–';
+      const mZ = p.mZ ?? (mT !== '–' ? (parseInt(mT, 10) || -1) : -1);
+
+      const effVal = p.effT ?? p.eff;
+      let effT = '–';
+      let effZ = -1;
+      if (p.effZ !== undefined) {
+        effZ = p.effZ;
+        effT = p.effT || '–';
+      } else if (effVal !== null && effVal !== undefined && effVal !== '' && effVal !== 0 && effVal !== '-') {
+        const num = parseFloat(String(effVal).replace('%', '').replace(',', '.'));
+        if (!isNaN(num)) {
+          effZ = num;
+          effT = String(effVal).includes('%') ? String(effVal) : (num + '%');
         }
+      }
 
-        function renderJSON(data) {
-            players = data.players || [];
-            const date = new Date(data.updatedAt);
-            document.getElementById('lastUpdate').textContent = `Stand: ${date.toLocaleDateString('de-AT')} ${date.toLocaleTimeString('de-AT', {hour: '2-digit', minute:'2-digit'})} (${players.length} Spieler)`;
-            renderTable();
-        }
+      const seitVal = p.seitT ?? p.since ?? p.seit;
+      const seitT = (seitVal && seitVal !== '-') ? String(seitVal) : '–';
+      let seitZ = p.seitZ ?? 9e15;
+      if (seitZ === 9e15 && seitT !== '–') {
+        const m = seitT.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+        if (m) seitZ = new Date(m[3] + '-' + m[2] + '-' + m[1]).getTime();
+      }
 
-        function toggleFav(url) {
-            if (favorites.includes(url)) {
-                favorites = favorites.filter(u => u !== url);
-            } else {
-                favorites.push(url);
-            }
-            localStorage.setItem('apu_favs', JSON.stringify(favorites));
-            renderTable();
-        }
+      return { platz, name, punkte, url, bild, apnT, apnZ, mT, mZ, effT, effZ, seitT, seitZ };
+    });
+  };
 
-        function renderTable() {
-            const q = document.getElementById('search').value.toLowerCase();
-            const sortBy = document.getElementById('sortSelect').value;
+  const applyData = (rawObj, fromCache) => {
+    const rawPlayers = rawObj.players || rawObj.data || [];
+    liste = normalizeData(rawPlayers);
+    document.getElementById('mainTitle').textContent = 'Herren Rangliste (Top ' + liste.length + ')';
+    const ts = rawObj.updatedAt || rawObj.lastUpdated;
+    let dateStr = '';
+    if (ts) {
+      const d = new Date(ts);
+      dateStr = d.toLocaleDateString('de-AT') + ', ' + d.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' }) + ' Uhr';
+    }
+    st.textContent = (fromCache ? '● Aus Browser-Cache' : '● Aktuell geladen') + (dateStr ? ' (' + dateStr + ')' : '');
+    updateKpis();
+    render();
+  };
 
-            let list = players.filter(p => {
-                if (onlyFavs && !favorites.includes(p.url)) return false;
-                if (q && !p.name.toLowerCase().includes(q)) return false;
-                return true;
-            });
+  // 1. Sofort aus localStorage laden (falls jünger als 1 Stunde)
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      if (parsed && parsed.savedAt && (Date.now() - parsed.savedAt < 3600000)) {
+        applyData(parsed.payload, true);
+        return;
+      }
+    } catch (e) {}
+  }
 
-            list.sort((a, b) => {
-                if (sortBy === 'rank') return a.rank - b.rank;
-                return (b[sortBy] || 0) - (a[sortBy] || 0);
-            });
-
-            const tbody = document.getElementById('tbody');
-            tbody.innerHTML = list.slice(0, 500).map(p => {
-                const isFav = favorites.includes(p.url);
-                const rankDiff = (p.prevRank || p.rank) - p.rank;
-                const trend = rankDiff > 0 ? `<span class="trend-up">▲${rankDiff}</span>` : (rankDiff < 0 ? `<span class="trend-down">▼${Math.abs(rankDiff)}</span>` : '');
-                const imgTag = p.img ? `<img src="${p.img}" class="avatar" loading="lazy">` : `<div class="avatar"></div>`;
-
-                return `
-                    <tr>
-                        <td><button class="fav-btn ${isFav ? 'is-fav' : ''}" onclick="toggleFav('${p.url}')">${isFav ? '★' : '☆'}</button></td>
-                        <td><strong>${p.rank}</strong>${trend}</td>
-                        <td>
-                            <div class="player-cell">
-                                ${imgTag}
-                                <a href="${p.url}" target="_blank" rel="noopener">${p.name}</a>
-                            </div>
-                        </td>
-                        <td><strong>${p.points.toLocaleString('de-AT')}</strong></td>
-                        <td>${p.apn ?? '-'}</td>
-                        <td>${p.matches || '-'}</td>
-                        <td>${p.eff || '-'}</td>
-                        <td>${p.since || '-'}</td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        document.getElementById('search').addEventListener('input', renderTable);
-        document.getElementById('sortSelect').addEventListener('change', renderTable);
-        document.getElementById('favFilterBtn').addEventListener('click', (e) => {
-            onlyFavs = !onlyFavs;
-            e.target.classList.toggle('active', onlyFavs);
-            renderTable();
-        });
-
-        loadData();
-    </script>
+  // 2. Frische data.json vom eigenen GitHub-Repo holen
+  try {
+    const res = await fetch('./data.json?v=' + Math.floor(Date.now() / 60000));
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), payload: json }));
+    } catch (e) {}
+    applyData(json, false);
+  } catch (e) {
+    st.textContent = '⚠ Noch keine data.json gefunden';
+    st.style.color = '#fbbf24';
+  }
+})();
+</script>
 </body>
 </html>
