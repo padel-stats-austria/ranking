@@ -66,14 +66,6 @@
         const q = document.getElementById('suche').value.toLowerCase();
         const sb = document.getElementById('sort').value;
 
-        // const f = liste.filter(x => x.name.toLowerCase().includes(q)).sort((a, b) => {
-        //   if (sb === 'eff') return b.effZ - a.effZ;
-        //   if (sb === 'apn') return b.apnZ - a.apnZ;
-        //   if (sb === 'matches') return b.mZ - a.mZ;
-        //   if (sb === 'seit') return a.seitZ - b.seitZ;
-        //   return a.platz - b.platz;
-        // });
-
         const f = liste.filter(x => x.name.toLowerCase().includes(q)).sort((a, b) => {
           const pA = parseInt(String(a.punkte).replace(/\D/g, ''), 10) || 0;
           const pB = parseInt(String(b.punkte).replace(/\D/g, ''), 10) || 0;
@@ -144,7 +136,7 @@
           const parsed = JSON.parse(gespeichert);
           if (parsed && parsed.data && parsed.data.length > 0 && (Date.now() - (parsed.savedAt || 0) < 3600000)) {
             liste = parsed.data;
-            st.textContent = '● Aus Browser-Cache (' + parsed.datum + ')';
+            st.textContent = '● Cache-Stand (' + parsed.datum + ')';
             st.style.color = '#34d399';
             st.style.borderColor = 'rgba(16,185,129,.4)';
             document.getElementById('reloadBtn').style.display = 'inline-block';
