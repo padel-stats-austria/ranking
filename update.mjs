@@ -74,7 +74,7 @@ async function run() {
     $('table tbody tr').each((_, tr) => {
       const tds = $(tr).find('td');
       if (tds.length < 3) return;
-      const link = $(tds[1]).find('a');
+      const link = tds.eq(1).find('a');
       if (!link.length) return;
 
       const rawUrl = link.attr('href');
@@ -85,8 +85,8 @@ async function run() {
       seenUrls.add(fullUrl);
 
       const name = link.text().trim();
-      const platz = parseInt($(tds[0]).text().trim(), 10) || 0;
-      const punkte = parseInt($(tds[2]).text().replace(/\D/g, ''), 10) || 0;
+      const platz = parseInt(tds.eq(0).text().trim(), 10) || 0;
+      const punkte = parseInt(tds.eq(2).text().replace(/\D/g, ''), 10) || 0;
 
       if (name) {
         currentList.push({ platz, name, url: fullUrl, punkte });
