@@ -217,9 +217,9 @@ async function run() {
 
   const now = new Date();
   const datum =
-    now.toLocaleDateString('de-AT') +
+    now.toLocaleDateString('de-AT', { timeZone: 'Europe/Vienna' }) +
     ' ' +
-    now.toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' });
+    now.toLocaleTimeString('de-AT', { timeZone: 'Europe/Vienna', hour: '2-digit', minute: '2-digit' });
 
   const output = {
     datum,
