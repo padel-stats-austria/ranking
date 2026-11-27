@@ -1,5 +1,5 @@
 {
-  "datum": "26.11.2026 15:36",
+  "datum": "27.11.2026 11:06",
   "totalPlayers": 300,
   "data": [
     {
@@ -1737,7 +1737,24 @@
       "flag": "https://flagcdn.com/w40/rs.png"
     },
     {
-      "platz": 103,
+      "platz": 102,
+      "name": "Florian Tatra",
+      "url": "https://padel-austria.at/players/tatra-florian",
+      "punkte": 11400,
+      "apnZ": 4.539,
+      "apnT": "4,539",
+      "mZ": 93,
+      "mT": "93",
+      "effZ": 67.74,
+      "effT": "67,74%",
+      "seitZ": 1720224000000,
+      "seitT": "06.07.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 104,
       "name": "Marco Oraze",
       "url": "https://padel-austria.at/players/oraze-marco",
       "punkte": 11375,
@@ -1754,7 +1771,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 104,
+      "platz": 105,
       "name": "Norbert Hochleutner",
       "url": "https://padel-austria.at/players/hochleutner-norbert",
       "punkte": 11350,
@@ -1771,7 +1788,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 104,
+      "platz": 105,
       "name": "Bernhard Müllner",
       "url": "https://padel-austria.at/players/muellner-bernhard",
       "punkte": 11350,
@@ -1788,7 +1805,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 104,
+      "platz": 105,
       "name": "Alex Joschtel",
       "url": "https://padel-austria.at/players/joschtel-alex",
       "punkte": 11350,
@@ -1805,7 +1822,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 107,
+      "platz": 108,
       "name": "Patrick Berger",
       "url": "https://padel-austria.at/players/berger-patrick",
       "punkte": 11340,
@@ -1822,7 +1839,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 108,
+      "platz": 109,
       "name": "Michael Granzer",
       "url": "https://padel-austria.at/players/granzer-michael",
       "punkte": 11305,
@@ -1839,7 +1856,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 109,
+      "platz": 110,
       "name": "Martin Zlabinger",
       "url": "https://padel-austria.at/players/zlabinger-martin",
       "punkte": 11280,
@@ -1856,7 +1873,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 110,
+      "platz": 111,
       "name": "David Hofer",
       "url": "https://padel-austria.at/players/hofer-david",
       "punkte": 11250,
@@ -1873,7 +1890,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 111,
+      "platz": 112,
       "name": "Nail Osmanov",
       "url": "https://padel-austria.at/players/osmanov-nail",
       "punkte": 11225,
@@ -1890,7 +1907,7 @@
       "flag": "https://flagcdn.com/w40/ua.png"
     },
     {
-      "platz": 112,
+      "platz": 113,
       "name": "Peter Jahrmann",
       "url": "https://padel-austria.at/players/jahrmann-peter",
       "punkte": 11210,
@@ -1907,7 +1924,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 113,
+      "platz": 114,
       "name": "Noah Lederer",
       "url": "https://padel-austria.at/players/lederer-noah",
       "punkte": 11205,
@@ -1924,7 +1941,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 114,
+      "platz": 115,
       "name": "Kevin Waldner",
       "url": "https://padel-austria.at/players/waldner-kevin",
       "punkte": 11200,
@@ -1941,7 +1958,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 115,
+      "platz": 116,
       "name": "Andreas Hülmbauer",
       "url": "https://padel-austria.at/players/huelmbauer-andreas",
       "punkte": 11170,
@@ -1958,7 +1975,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 116,
+      "platz": 117,
       "name": "Manuel Pechacek",
       "url": "https://padel-austria.at/players/pechacek-manuel",
       "punkte": 11125,
@@ -1972,23 +1989,6 @@
       "seitT": "18.08.2023",
       "seitV2": true,
       "bild": "https://padel-austria.at/uploads/player/image/5991/large_img_0764.jpg",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 117,
-      "name": "Florian Tatra",
-      "url": "https://padel-austria.at/players/tatra-florian",
-      "punkte": 11100,
-      "apnZ": 4.555,
-      "apnT": "4,555",
-      "mZ": 89,
-      "mT": "89",
-      "effZ": 68.54,
-      "effT": "68,54%",
-      "seitZ": 1720224000000,
-      "seitT": "06.07.2024",
-      "seitV2": true,
-      "bild": "",
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
@@ -2435,6 +2435,23 @@
     },
     {
       "platz": 144,
+      "name": "Simon Kienberger",
+      "url": "https://padel-austria.at/players/kienberger-simon",
+      "punkte": 10075,
+      "apnZ": 4.55,
+      "apnT": "4,550",
+      "mZ": 105,
+      "mT": "105",
+      "effZ": 58.1,
+      "effT": "58,10%",
+      "seitZ": 1732320000000,
+      "seitT": "23.11.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 145,
       "name": "Peter Simbrunner",
       "url": "https://padel-austria.at/players/simbrunner-peter",
       "punkte": 10000,
@@ -2451,7 +2468,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 145,
+      "platz": 146,
       "name": "Anton Pleva",
       "url": "https://padel-austria.at/players/pleva-anton",
       "punkte": 9950,
@@ -2468,7 +2485,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 145,
+      "platz": 146,
       "name": "Christian Dlopst",
       "url": "https://padel-austria.at/players/dlopst-christian",
       "punkte": 9950,
@@ -2485,24 +2502,41 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 147,
-      "name": "Simon Kienberger",
-      "url": "https://padel-austria.at/players/kienberger-simon",
+      "platz": 148,
+      "name": "Felix Nikolas Bauernfeind",
+      "url": "https://padel-austria.at/players/bauernfeind-felix-nikolas",
       "punkte": 9875,
-      "apnZ": 4.35,
-      "apnT": "4,350",
-      "mZ": 101,
-      "mT": "101",
-      "effZ": 57.43,
-      "effT": "57,43%",
-      "seitZ": 1732320000000,
-      "seitT": "23.11.2024",
+      "apnZ": 4.543,
+      "apnT": "4,543",
+      "mZ": 139,
+      "mT": "139",
+      "effZ": 62.59,
+      "effT": "62,59%",
+      "seitZ": 1734134400000,
+      "seitT": "14.12.2024",
       "seitV2": true,
       "bild": "",
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 148,
+      "platz": 149,
+      "name": "Marc Kluft",
+      "url": "https://padel-austria.at/players/kluft-marc",
+      "punkte": 9870,
+      "apnZ": 4.4,
+      "apnT": "4,400",
+      "mZ": 222,
+      "mT": "222",
+      "effZ": 55.86,
+      "effT": "55,86%",
+      "seitZ": 1593216000000,
+      "seitT": "27.06.2020",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/1182/large_apu_michael-meindl_2025-11-02_0175.jpg",
+      "flag": "https://flagcdn.com/w40/nl.png"
+    },
+    {
+      "platz": 150,
       "name": "Thomas Pfalzmann",
       "url": "https://padel-austria.at/players/pfalzmann-thomas",
       "punkte": 9850,
@@ -2519,7 +2553,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 149,
+      "platz": 151,
       "name": "Clemens Haid",
       "url": "https://padel-austria.at/players/haid-clemens",
       "punkte": 9790,
@@ -2536,7 +2570,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 150,
+      "platz": 152,
       "name": "Niklas Hofbauer",
       "url": "https://padel-austria.at/players/hofbauer-niklas",
       "punkte": 9770,
@@ -2553,7 +2587,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 151,
+      "platz": 153,
       "name": "Thomas Statzberger",
       "url": "https://padel-austria.at/players/statzberger-thomas",
       "punkte": 9760,
@@ -2570,7 +2604,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 152,
+      "platz": 154,
       "name": "Samuel Zippl",
       "url": "https://padel-austria.at/players/zippl-samuel",
       "punkte": 9750,
@@ -2587,7 +2621,7 @@
       "flag": "https://flagcdn.com/w40/it.png"
     },
     {
-      "platz": 153,
+      "platz": 155,
       "name": "Felix Wilhelm",
       "url": "https://padel-austria.at/players/wilhelm-felix",
       "punkte": 9730,
@@ -2604,7 +2638,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 153,
+      "platz": 155,
       "name": "Ulf Reischitz",
       "url": "https://padel-austria.at/players/reischitz-ulf",
       "punkte": 9730,
@@ -2621,24 +2655,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 155,
-      "name": "Marc Kluft",
-      "url": "https://padel-austria.at/players/kluft-marc",
-      "punkte": 9720,
-      "apnZ": 4.4,
-      "apnT": "4,400",
-      "mZ": 220,
-      "mT": "220",
-      "effZ": 55.91,
-      "effT": "55,91%",
-      "seitZ": 1593216000000,
-      "seitT": "27.06.2020",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/1182/large_apu_michael-meindl_2025-11-02_0175.jpg",
-      "flag": "https://flagcdn.com/w40/nl.png"
-    },
-    {
-      "platz": 156,
+      "platz": 157,
       "name": "Koray Turker",
       "url": "https://padel-austria.at/players/turker-koray",
       "punkte": 9705,
@@ -2655,7 +2672,7 @@
       "flag": "https://flagcdn.com/w40/au.png"
     },
     {
-      "platz": 157,
+      "platz": 158,
       "name": "Stefan Nutz",
       "url": "https://padel-austria.at/players/nutz-stefan",
       "punkte": 9700,
@@ -2672,7 +2689,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 158,
+      "platz": 159,
       "name": "Dominik Troschl",
       "url": "https://padel-austria.at/players/troschl-dominik",
       "punkte": 9690,
@@ -2684,23 +2701,6 @@
       "effT": "54,02%",
       "seitZ": 1594425600000,
       "seitT": "11.07.2020",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 159,
-      "name": "Felix Nikolas Bauernfeind",
-      "url": "https://padel-austria.at/players/bauernfeind-felix-nikolas",
-      "punkte": 9675,
-      "apnZ": 4.343,
-      "apnT": "4,343",
-      "mZ": 135,
-      "mT": "135",
-      "effZ": 62.22,
-      "effT": "62,22%",
-      "seitZ": 1734134400000,
-      "seitT": "14.12.2024",
       "seitV2": true,
       "bild": "",
       "flag": "https://flagcdn.com/w40/at.png"
@@ -3149,6 +3149,23 @@
     },
     {
       "platz": 186,
+      "name": "Marcello Rossi",
+      "url": "https://padel-austria.at/players/rossi-marcello",
+      "punkte": 9230,
+      "apnZ": 3.282,
+      "apnT": "3,282",
+      "mZ": 91,
+      "mT": "91",
+      "effZ": 58.24,
+      "effT": "58,24%",
+      "seitZ": 1722643200000,
+      "seitT": "03.08.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/za.png"
+    },
+    {
+      "platz": 187,
       "name": "Paul Madar",
       "url": "https://padel-austria.at/players/madar-paul",
       "punkte": 9200,
@@ -3165,7 +3182,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 187,
+      "platz": 188,
       "name": "Maximilian Gfrerer",
       "url": "https://padel-austria.at/players/gfrerer-maximilian",
       "punkte": 9170,
@@ -3182,7 +3199,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 188,
+      "platz": 189,
       "name": "Denis Hamulic",
       "url": "https://padel-austria.at/players/hamulic-denis",
       "punkte": 9150,
@@ -3199,7 +3216,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 188,
+      "platz": 189,
       "name": "Nico Glösl",
       "url": "https://padel-austria.at/players/gloesl-nico",
       "punkte": 9150,
@@ -3216,7 +3233,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 190,
+      "platz": 191,
       "name": "Gernot Prammer",
       "url": "https://padel-austria.at/players/prammer-gernot",
       "punkte": 9140,
@@ -3233,7 +3250,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 191,
+      "platz": 192,
       "name": "Thomas Wild",
       "url": "https://padel-austria.at/players/wild-thomas",
       "punkte": 9135,
@@ -3250,7 +3267,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 191,
+      "platz": 192,
       "name": "Peter Brenner",
       "url": "https://padel-austria.at/players/brenner-peter",
       "punkte": 9135,
@@ -3267,7 +3284,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 193,
+      "platz": 194,
       "name": "Matthias Holzer",
       "url": "https://padel-austria.at/players/holzer-matthias",
       "punkte": 9110,
@@ -3284,7 +3301,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 194,
+      "platz": 195,
       "name": "Denys Puzanov",
       "url": "https://padel-austria.at/players/puzanov-denys",
       "punkte": 9100,
@@ -3301,7 +3318,7 @@
       "flag": "https://flagcdn.com/w40/es.png"
     },
     {
-      "platz": 194,
+      "platz": 195,
       "name": "Robert Edlinger",
       "url": "https://padel-austria.at/players/edlinger-robert",
       "punkte": 9100,
@@ -3318,7 +3335,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 194,
+      "platz": 195,
       "name": "Noah Schultus",
       "url": "https://padel-austria.at/players/schultus-noah",
       "punkte": 9100,
@@ -3335,7 +3352,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 194,
+      "platz": 195,
       "name": "Kevin Lebenbauer",
       "url": "https://padel-austria.at/players/lebenbauer-kevin",
       "punkte": 9100,
@@ -3352,7 +3369,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 198,
+      "platz": 199,
       "name": "Erik Kaspirek",
       "url": "https://padel-austria.at/players/kaspirek-erik",
       "punkte": 9080,
@@ -3369,7 +3386,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 199,
+      "platz": 200,
       "name": "Lukas Jedlicka",
       "url": "https://padel-austria.at/players/jedlicka-lukas",
       "punkte": 9070,
@@ -3386,7 +3403,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 200,
+      "platz": 201,
       "name": "Mika Kloesch",
       "url": "https://padel-austria.at/players/kloesch-mika",
       "punkte": 9050,
@@ -3403,7 +3420,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 201,
+      "platz": 202,
       "name": "Tobias Tobler",
       "url": "https://padel-austria.at/players/tobler-tobias",
       "punkte": 8990,
@@ -3420,7 +3437,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 202,
+      "platz": 203,
       "name": "Lukas Eineder",
       "url": "https://padel-austria.at/players/eineder-lukas",
       "punkte": 8980,
@@ -3437,7 +3454,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 203,
+      "platz": 204,
       "name": "David Fürk",
       "url": "https://padel-austria.at/players/fuerk-david",
       "punkte": 8970,
@@ -3454,7 +3471,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 204,
+      "platz": 205,
       "name": "Tobias Bauer",
       "url": "https://padel-austria.at/players/bauer-tobias",
       "punkte": 8950,
@@ -3471,7 +3488,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 205,
+      "platz": 206,
       "name": "Joachim Schemm",
       "url": "https://padel-austria.at/players/schemm-joachim",
       "punkte": 8880,
@@ -3488,7 +3505,7 @@
       "flag": "https://flagcdn.com/w40/de.png"
     },
     {
-      "platz": 205,
+      "platz": 206,
       "name": "Leon Roider",
       "url": "https://padel-austria.at/players/roider-leon",
       "punkte": 8880,
@@ -3505,7 +3522,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 207,
+      "platz": 208,
       "name": "Stefan Schaller",
       "url": "https://padel-austria.at/players/schaller-stefan",
       "punkte": 8855,
@@ -3522,7 +3539,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 208,
+      "platz": 209,
       "name": "Stefan Kluppenegger",
       "url": "https://padel-austria.at/players/kluppenegger-stefan",
       "punkte": 8825,
@@ -3539,7 +3556,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 209,
+      "platz": 210,
       "name": "Niclas Kögl",
       "url": "https://padel-austria.at/players/koegl-niclas",
       "punkte": 8820,
@@ -3556,7 +3573,7 @@
       "flag": "https://flagcdn.com/w40/de.png"
     },
     {
-      "platz": 210,
+      "platz": 211,
       "name": "Gabriel Wilfling",
       "url": "https://padel-austria.at/players/wilfling-gabriel",
       "punkte": 8800,
@@ -3573,7 +3590,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 211,
+      "platz": 212,
       "name": "Thomas Janzso",
       "url": "https://padel-austria.at/players/janzso-thomas",
       "punkte": 8780,
@@ -3590,7 +3607,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 212,
+      "platz": 213,
       "name": "Luis Buss",
       "url": "https://padel-austria.at/players/buss-luis",
       "punkte": 8775,
@@ -3607,7 +3624,7 @@
       "flag": "https://flagcdn.com/w40/de.png"
     },
     {
-      "platz": 213,
+      "platz": 214,
       "name": "Bernd Prenter",
       "url": "https://padel-austria.at/players/prenter-bernd-69ea695c-665a-402d-af91-7bf8779a0b4f",
       "punkte": 8750,
@@ -3622,23 +3639,6 @@
       "seitV2": true,
       "bild": "",
       "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 213,
-      "name": "Marcello Rossi",
-      "url": "https://padel-austria.at/players/rossi-marcello",
-      "punkte": 8750,
-      "apnZ": 3.074,
-      "apnT": "3,074",
-      "mZ": 87,
-      "mT": "87",
-      "effZ": 57.47,
-      "effT": "57,47%",
-      "seitZ": 1722643200000,
-      "seitT": "03.08.2024",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/za.png"
     },
     {
       "platz": 215,
@@ -3727,6 +3727,23 @@
     },
     {
       "platz": 220,
+      "name": "Christian Ebner",
+      "url": "https://padel-austria.at/players/ebner-christian",
+      "punkte": 8650,
+      "apnZ": 4.447,
+      "apnT": "4,447",
+      "mZ": 357,
+      "mT": "357",
+      "effZ": 61.06,
+      "effT": "61,06%",
+      "seitZ": 1659830400000,
+      "seitT": "07.08.2022",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/4293/large_chris_2025.jpg",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 220,
       "name": "Roman Scharner",
       "url": "https://padel-austria.at/players/scharner-roman",
       "punkte": 8650,
@@ -3743,7 +3760,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 221,
+      "platz": 222,
       "name": "Christoph Weber",
       "url": "https://padel-austria.at/players/weber-christoph-a76f38a0-4636-495e-a3bd-2ad606148adf",
       "punkte": 8630,
@@ -3760,7 +3777,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 221,
+      "platz": 222,
       "name": "Georg Pölzl",
       "url": "https://padel-austria.at/players/poelzl-georg",
       "punkte": 8630,
@@ -3777,7 +3794,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 221,
+      "platz": 222,
       "name": "Johannes Kratz",
       "url": "https://padel-austria.at/players/kratz-johannes",
       "punkte": 8630,
@@ -3794,7 +3811,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 224,
+      "platz": 225,
       "name": "Valentin Dodig",
       "url": "https://padel-austria.at/players/dodig-valentin",
       "punkte": 8620,
@@ -3811,7 +3828,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 225,
+      "platz": 226,
       "name": "Manuel Lurger",
       "url": "https://padel-austria.at/players/lurger-manuel",
       "punkte": 8600,
@@ -3828,7 +3845,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 226,
+      "platz": 227,
       "name": "Christian Sereinigg",
       "url": "https://padel-austria.at/players/sereinigg-christian",
       "punkte": 8560,
@@ -3845,7 +3862,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 227,
+      "platz": 228,
       "name": "Marko Mrsic",
       "url": "https://padel-austria.at/players/mrsic-marko",
       "punkte": 8555,
@@ -3859,23 +3876,6 @@
       "seitT": "10.05.2024",
       "seitV2": true,
       "bild": "https://padel-austria.at/uploads/player/image/11116/large_5c5d6c39-d30e-4a0f-b64d-c7515874ca6e.jpg",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 228,
-      "name": "Christian Ebner",
-      "url": "https://padel-austria.at/players/ebner-christian",
-      "punkte": 8550,
-      "apnZ": 4.55,
-      "apnT": "4,550",
-      "mZ": 355,
-      "mT": "355",
-      "effZ": 61.13,
-      "effT": "61,13%",
-      "seitZ": 1659830400000,
-      "seitT": "07.08.2022",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/4293/large_chris_2025.jpg",
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
@@ -3913,7 +3913,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 231,
+      "platz": 230,
+      "name": "Florian Linke",
+      "url": "https://padel-austria.at/players/linke-florian",
+      "punkte": 8530,
+      "apnZ": 3.76,
+      "apnT": "3,760",
+      "mZ": 77,
+      "mT": "77",
+      "effZ": 61.04,
+      "effT": "61,04%",
+      "seitZ": 1757721600000,
+      "seitT": "13.09.2025",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/de.png"
+    },
+    {
+      "platz": 232,
       "name": "Johannes Karner",
       "url": "https://padel-austria.at/players/karner-johannes",
       "punkte": 8490,
@@ -3930,7 +3947,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 232,
+      "platz": 233,
       "name": "Markus Mayer88",
       "url": "https://padel-austria.at/players/mayer88-markus",
       "punkte": 8485,
@@ -3947,7 +3964,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 233,
+      "platz": 234,
       "name": "Felix Rockenschaub",
       "url": "https://padel-austria.at/players/rockenschaub-felix",
       "punkte": 8480,
@@ -3964,7 +3981,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 234,
+      "platz": 235,
+      "name": "Patrick Pöstinger",
+      "url": "https://padel-austria.at/players/poestinger-patrick",
+      "punkte": 8470,
+      "apnZ": 4.445,
+      "apnT": "4,445",
+      "mZ": 54,
+      "mT": "54",
+      "effZ": 75.93,
+      "effT": "75,93%",
+      "seitZ": 1761436800000,
+      "seitT": "26.10.2025",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 236,
       "name": "Moritz Wittmann",
       "url": "https://padel-austria.at/players/wittmann-moritz",
       "punkte": 8460,
@@ -3981,7 +4015,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 235,
+      "platz": 237,
       "name": "Josip Mrsic",
       "url": "https://padel-austria.at/players/mrsic-josip",
       "punkte": 8455,
@@ -3998,7 +4032,7 @@
       "flag": "https://flagcdn.com/w40/hr.png"
     },
     {
-      "platz": 236,
+      "platz": 238,
       "name": "Markus Feigl",
       "url": "https://padel-austria.at/players/feigl-markus",
       "punkte": 8445,
@@ -4015,7 +4049,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 237,
+      "platz": 239,
       "name": "Franco Iriart",
       "url": "https://padel-austria.at/players/iriart-franco",
       "punkte": 8440,
@@ -4032,7 +4066,7 @@
       "flag": "https://flagcdn.com/w40/ar.png"
     },
     {
-      "platz": 238,
+      "platz": 240,
       "name": "Christoph Schrottmayer",
       "url": "https://padel-austria.at/players/schrottmayer-christoph",
       "punkte": 8430,
@@ -4049,7 +4083,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 239,
+      "platz": 241,
       "name": "Patrick Stromberger",
       "url": "https://padel-austria.at/players/stromberger-patrick",
       "punkte": 8420,
@@ -4066,7 +4100,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 240,
+      "platz": 242,
       "name": "André Spitzinger",
       "url": "https://padel-austria.at/players/spitzinger-andre",
       "punkte": 8410,
@@ -4083,7 +4117,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 241,
+      "platz": 243,
       "name": "Sebastian Mader",
       "url": "https://padel-austria.at/players/mader-sebastian",
       "punkte": 8405,
@@ -4100,24 +4134,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 242,
-      "name": "Stefan Herbert",
-      "url": "https://padel-austria.at/players/herbert-stefan",
-      "punkte": 8380,
-      "apnZ": 2.65,
-      "apnT": "2,650",
-      "mZ": 188,
-      "mT": "188",
-      "effZ": 66.49,
-      "effT": "66,49%",
-      "seitZ": 1725667200000,
-      "seitT": "07.09.2024",
+      "platz": 244,
+      "name": "Philipp Mahringer",
+      "url": "https://padel-austria.at/players/mahringer-philipp",
+      "punkte": 8390,
+      "apnZ": 3.708,
+      "apnT": "3,708",
+      "mZ": 137,
+      "mT": "137",
+      "effZ": 70.07,
+      "effT": "70,07%",
+      "seitZ": 1692230400000,
+      "seitT": "17.08.2023",
       "seitV2": true,
       "bild": "",
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 242,
+      "platz": 245,
       "name": "Nicolas Matjasic",
       "url": "https://padel-austria.at/players/matjasic-nicolas",
       "punkte": 8380,
@@ -4134,7 +4168,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 242,
+      "platz": 245,
+      "name": "Stefan Herbert",
+      "url": "https://padel-austria.at/players/herbert-stefan",
+      "punkte": 8380,
+      "apnZ": 2.65,
+      "apnT": "2,650",
+      "mZ": 188,
+      "mT": "188",
+      "effZ": 66.49,
+      "effT": "66,49%",
+      "seitZ": 1725667200000,
+      "seitT": "07.09.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 245,
       "name": "Jochen Danzer",
       "url": "https://padel-austria.at/players/danzer-jochen",
       "punkte": 8380,
@@ -4151,24 +4202,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 245,
-      "name": "Martin Haas",
-      "url": "https://padel-austria.at/players/haas-martin",
-      "punkte": 8370,
-      "apnZ": 3.791,
-      "apnT": "3,791",
-      "mZ": 144,
-      "mT": "144",
-      "effZ": 56.94,
-      "effT": "56,94%",
-      "seitZ": 1694131200000,
-      "seitT": "08.09.2023",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 245,
+      "platz": 248,
       "name": "Paul Tumfart",
       "url": "https://padel-austria.at/players/tumfart-paul",
       "punkte": 8370,
@@ -4185,24 +4219,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 245,
-      "name": "Patrick Pöstinger",
-      "url": "https://padel-austria.at/players/poestinger-patrick",
-      "punkte": 8370,
-      "apnZ": 4.454,
-      "apnT": "4,454",
-      "mZ": 50,
-      "mT": "50",
-      "effZ": 76,
-      "effT": "76,00%",
-      "seitZ": 1761436800000,
-      "seitT": "26.10.2025",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 245,
+      "platz": 248,
       "name": "Rene Wilding",
       "url": "https://padel-austria.at/players/wilding-rene",
       "punkte": 8370,
@@ -4219,7 +4236,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 249,
+      "platz": 248,
+      "name": "Martin Haas",
+      "url": "https://padel-austria.at/players/haas-martin",
+      "punkte": 8370,
+      "apnZ": 3.791,
+      "apnT": "3,791",
+      "mZ": 144,
+      "mT": "144",
+      "effZ": 56.94,
+      "effT": "56,94%",
+      "seitZ": 1694131200000,
+      "seitT": "08.09.2023",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 251,
       "name": "Alexander Solovykh",
       "url": "https://padel-austria.at/players/solovykh-alexander",
       "punkte": 8360,
@@ -4236,58 +4270,7 @@
       "flag": "https://flagcdn.com/w40/jp.png"
     },
     {
-      "platz": 250,
-      "name": "Niko Djelic",
-      "url": "https://padel-austria.at/players/djelic-niko",
-      "punkte": 8330,
-      "apnZ": 4.209,
-      "apnT": "4,209",
-      "mZ": 159,
-      "mT": "159",
-      "effZ": 59.75,
-      "effT": "59,75%",
-      "seitZ": 1650758400000,
-      "seitT": "24.04.2022",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/3639/large_screenshot_20260419-224505_gallery__1_.jpg",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 250,
-      "name": "André Salzer",
-      "url": "https://padel-austria.at/players/salzer-andre",
-      "punkte": 8330,
-      "apnZ": 3.736,
-      "apnT": "3,736",
-      "mZ": 148,
-      "mT": "148",
-      "effZ": 62.84,
-      "effT": "62,84%",
-      "seitZ": 1729900800000,
-      "seitT": "26.10.2024",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 250,
-      "name": "Ricardo Rubio Rumí",
-      "url": "https://padel-austria.at/players/rubio-rumi-ricardo",
-      "punkte": 8330,
-      "apnZ": 3.572,
-      "apnT": "3,572",
-      "mZ": 366,
-      "mT": "366",
-      "effZ": 56.28,
-      "effT": "56,28%",
-      "seitZ": 1696118400000,
-      "seitT": "01.10.2023",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/8251/large_Screenshot_2024_0702_132146.jpg",
-      "flag": "https://flagcdn.com/w40/es.png"
-    },
-    {
-      "platz": 250,
+      "platz": 252,
       "name": "Felix Rieger",
       "url": "https://padel-austria.at/players/rieger-felix",
       "punkte": 8330,
@@ -4304,7 +4287,58 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 254,
+      "platz": 252,
+      "name": "Ricardo Rubio Rumí",
+      "url": "https://padel-austria.at/players/rubio-rumi-ricardo",
+      "punkte": 8330,
+      "apnZ": 3.572,
+      "apnT": "3,572",
+      "mZ": 366,
+      "mT": "366",
+      "effZ": 56.28,
+      "effT": "56,28%",
+      "seitZ": 1696118400000,
+      "seitT": "01.10.2023",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/8251/large_Screenshot_2024_0702_132146.jpg",
+      "flag": "https://flagcdn.com/w40/es.png"
+    },
+    {
+      "platz": 252,
+      "name": "Niko Djelic",
+      "url": "https://padel-austria.at/players/djelic-niko",
+      "punkte": 8330,
+      "apnZ": 4.209,
+      "apnT": "4,209",
+      "mZ": 159,
+      "mT": "159",
+      "effZ": 59.75,
+      "effT": "59,75%",
+      "seitZ": 1650758400000,
+      "seitT": "24.04.2022",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/3639/large_screenshot_20260419-224505_gallery__1_.jpg",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 252,
+      "name": "André Salzer",
+      "url": "https://padel-austria.at/players/salzer-andre",
+      "punkte": 8330,
+      "apnZ": 3.736,
+      "apnT": "3,736",
+      "mZ": 148,
+      "mT": "148",
+      "effZ": 62.84,
+      "effT": "62,84%",
+      "seitZ": 1729900800000,
+      "seitT": "26.10.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 256,
       "name": "Alen Dzijan",
       "url": "https://padel-austria.at/players/dzijan-alen",
       "punkte": 8300,
@@ -4321,7 +4355,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 255,
+      "platz": 257,
       "name": "David Petrovici",
       "url": "https://padel-austria.at/players/petrovici-david",
       "punkte": 8285,
@@ -4338,24 +4372,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 256,
-      "name": "Demian Hitzler",
-      "url": "https://padel-austria.at/players/hitzler-demian",
-      "punkte": 8280,
-      "apnZ": 3.444,
-      "apnT": "3,444",
-      "mZ": 388,
-      "mT": "388",
-      "effZ": 57.73,
-      "effT": "57,73%",
-      "seitZ": 1721347200000,
-      "seitT": "19.07.2024",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/11849/large_IMG_2616.jpg",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 256,
+      "platz": 258,
       "name": "Heorhii Pavlenko",
       "url": "https://padel-austria.at/players/pavlenko-heorhii",
       "punkte": 8280,
@@ -4372,7 +4389,7 @@
       "flag": "https://flagcdn.com/w40/ua.png"
     },
     {
-      "platz": 256,
+      "platz": 258,
       "name": "Manuel Binici",
       "url": "https://padel-austria.at/players/binici-manuel",
       "punkte": 8280,
@@ -4389,7 +4406,24 @@
       "flag": "https://flagcdn.com/w40/it.png"
     },
     {
-      "platz": 259,
+      "platz": 258,
+      "name": "Demian Hitzler",
+      "url": "https://padel-austria.at/players/hitzler-demian",
+      "punkte": 8280,
+      "apnZ": 3.444,
+      "apnT": "3,444",
+      "mZ": 388,
+      "mT": "388",
+      "effZ": 57.73,
+      "effT": "57,73%",
+      "seitZ": 1721347200000,
+      "seitT": "19.07.2024",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/11849/large_IMG_2616.jpg",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 261,
       "name": "Daniel Meier",
       "url": "https://padel-austria.at/players/meier-daniel",
       "punkte": 8265,
@@ -4406,7 +4440,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 260,
+      "platz": 262,
       "name": "Paul Pörtner",
       "url": "https://padel-austria.at/players/poertner-paul",
       "punkte": 8250,
@@ -4423,41 +4457,7 @@
       "flag": "https://flagcdn.com/w40/de.png"
     },
     {
-      "platz": 261,
-      "name": "Günther Malcher",
-      "url": "https://padel-austria.at/players/malcher-guenther",
-      "punkte": 8230,
-      "apnZ": 3.896,
-      "apnT": "3,896",
-      "mZ": 177,
-      "mT": "177",
-      "effZ": 56.5,
-      "effT": "56,50%",
-      "seitZ": 1743120000000,
-      "seitT": "28.03.2025",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 261,
-      "name": "Samuel Boruta",
-      "url": "https://padel-austria.at/players/boruta-samuel",
-      "punkte": 8230,
-      "apnZ": 3.566,
-      "apnT": "3,566",
-      "mZ": 185,
-      "mT": "185",
-      "effZ": 60.54,
-      "effT": "60,54%",
-      "seitZ": 1656201600000,
-      "seitT": "26.06.2022",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 261,
+      "platz": 263,
       "name": "Mario Markovic",
       "url": "https://padel-austria.at/players/markovic-mario",
       "punkte": 8230,
@@ -4474,7 +4474,41 @@
       "flag": "https://flagcdn.com/w40/hr.png"
     },
     {
-      "platz": 264,
+      "platz": 263,
+      "name": "Samuel Boruta",
+      "url": "https://padel-austria.at/players/boruta-samuel",
+      "punkte": 8230,
+      "apnZ": 3.566,
+      "apnT": "3,566",
+      "mZ": 185,
+      "mT": "185",
+      "effZ": 60.54,
+      "effT": "60,54%",
+      "seitZ": 1656201600000,
+      "seitT": "26.06.2022",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 263,
+      "name": "Günther Malcher",
+      "url": "https://padel-austria.at/players/malcher-guenther",
+      "punkte": 8230,
+      "apnZ": 3.896,
+      "apnT": "3,896",
+      "mZ": 177,
+      "mT": "177",
+      "effZ": 56.5,
+      "effT": "56,50%",
+      "seitZ": 1743120000000,
+      "seitT": "28.03.2025",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 266,
       "name": "Roland Novak",
       "url": "https://padel-austria.at/players/novak-roland",
       "punkte": 8190,
@@ -4491,24 +4525,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 264,
-      "name": "Philipp Mahringer",
-      "url": "https://padel-austria.at/players/mahringer-philipp",
-      "punkte": 8190,
-      "apnZ": 3.811,
-      "apnT": "3,811",
-      "mZ": 135,
-      "mT": "135",
-      "effZ": 70.37,
-      "effT": "70,37%",
-      "seitZ": 1692230400000,
-      "seitT": "17.08.2023",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 266,
+      "platz": 267,
       "name": "Philipp Grabner",
       "url": "https://padel-austria.at/players/grabner-philipp",
       "punkte": 8185,
@@ -4525,7 +4542,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 266,
+      "platz": 267,
       "name": "Roman Kaltenbrunner",
       "url": "https://padel-austria.at/players/kaltenbrunner-roman",
       "punkte": 8185,
@@ -4542,7 +4559,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 266,
+      "platz": 267,
       "name": "Markus Pirker-Rodrix",
       "url": "https://padel-austria.at/players/pirker-rodrix-markus",
       "punkte": 8185,
@@ -4559,7 +4576,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 269,
+      "platz": 270,
       "name": "Felix Rößler",
       "url": "https://padel-austria.at/players/roessler-felix",
       "punkte": 8180,
@@ -4576,7 +4593,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 270,
+      "platz": 271,
       "name": "Gernot Pichler",
       "url": "https://padel-austria.at/players/pichler-gernot",
       "punkte": 8160,
@@ -4594,6 +4611,23 @@
     },
     {
       "platz": 271,
+      "name": "Gerald Varilek",
+      "url": "https://padel-austria.at/players/varilek-gerald",
+      "punkte": 8160,
+      "apnZ": 3.911,
+      "apnT": "3,911",
+      "mZ": 55,
+      "mT": "55",
+      "effZ": 52.73,
+      "effT": "52,73%",
+      "seitZ": 1766275200000,
+      "seitT": "21.12.2025",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 273,
       "name": "Christian Hörzer",
       "url": "https://padel-austria.at/players/hoerzer-christian",
       "punkte": 8150,
@@ -4610,7 +4644,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 272,
+      "platz": 274,
       "name": "Alexander Wernig",
       "url": "https://padel-austria.at/players/wernig-alexander",
       "punkte": 8140,
@@ -4627,24 +4661,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 272,
-      "name": "Gerald Varilek",
-      "url": "https://padel-austria.at/players/varilek-gerald",
-      "punkte": 8140,
-      "apnZ": 3.964,
-      "apnT": "3,964",
-      "mZ": 52,
-      "mT": "52",
-      "effZ": 53.85,
-      "effT": "53,85%",
-      "seitZ": 1766275200000,
-      "seitT": "21.12.2025",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 274,
+      "platz": 275,
       "name": "Christian Ludwig",
       "url": "https://padel-austria.at/players/ludwig-christian",
       "punkte": 8125,
@@ -4661,7 +4678,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 275,
+      "platz": 276,
       "name": "Bartłomiej Szewczyk",
       "url": "https://padel-austria.at/players/szewczyk-bartlomiej",
       "punkte": 8105,
@@ -4678,7 +4695,7 @@
       "flag": "https://flagcdn.com/w40/pl.png"
     },
     {
-      "platz": 276,
+      "platz": 277,
       "name": "Manuel Kleinböck",
       "url": "https://padel-austria.at/players/kleinboeck-manuel",
       "punkte": 8100,
@@ -4695,7 +4712,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 277,
+      "platz": 278,
       "name": "Lukas Wapp",
       "url": "https://padel-austria.at/players/wapp-lukas",
       "punkte": 8085,
@@ -4712,41 +4729,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 278,
-      "name": "Markus Treiber",
-      "url": "https://padel-austria.at/players/treiber-markus",
-      "punkte": 8080,
-      "apnZ": 2.441,
-      "apnT": "2,441",
-      "mZ": 215,
-      "mT": "215",
-      "effZ": 51.63,
-      "effT": "51,63%",
-      "seitZ": 1744416000000,
-      "seitT": "12.04.2025",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/13867/large_apu.jpg",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 278,
-      "name": "Andreas Hahnenkamp",
-      "url": "https://padel-austria.at/players/hahnenkamp-andreas",
-      "punkte": 8080,
-      "apnZ": 2.738,
-      "apnT": "2,738",
-      "mZ": 215,
-      "mT": "215",
-      "effZ": 52.09,
-      "effT": "52,09%",
-      "seitZ": 1744416000000,
-      "seitT": "12.04.2025",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 278,
+      "platz": 279,
       "name": "Chu Ahgime Mungi",
       "url": "https://padel-austria.at/players/ahgime-mungi-chu",
       "punkte": 8080,
@@ -4763,7 +4746,24 @@
       "flag": "https://flagcdn.com/w40/cn.png"
     },
     {
-      "platz": 278,
+      "platz": 279,
+      "name": "Markus Treiber",
+      "url": "https://padel-austria.at/players/treiber-markus",
+      "punkte": 8080,
+      "apnZ": 2.441,
+      "apnT": "2,441",
+      "mZ": 215,
+      "mT": "215",
+      "effZ": 51.63,
+      "effT": "51,63%",
+      "seitZ": 1744416000000,
+      "seitT": "12.04.2025",
+      "seitV2": true,
+      "bild": "https://padel-austria.at/uploads/player/image/13867/large_apu.jpg",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 279,
       "name": "Dominik Haderer",
       "url": "https://padel-austria.at/players/haderer-dominik",
       "punkte": 8080,
@@ -4780,24 +4780,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 278,
-      "name": "Mario Loserth",
-      "url": "https://padel-austria.at/players/loserth-mario",
-      "punkte": 8080,
-      "apnZ": 4.104,
-      "apnT": "4,104",
-      "mZ": 133,
-      "mT": "133",
-      "effZ": 74.44,
-      "effT": "74,44%",
-      "seitZ": 1676678400000,
-      "seitT": "18.02.2023",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 278,
+      "platz": 279,
       "name": "Markus Witura",
       "url": "https://padel-austria.at/players/witura-markus",
       "punkte": 8080,
@@ -4814,21 +4797,38 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 284,
-      "name": "Florian Linke",
-      "url": "https://padel-austria.at/players/linke-florian",
-      "punkte": 8050,
-      "apnZ": 3.552,
-      "apnT": "3,552",
-      "mZ": 73,
-      "mT": "73",
-      "effZ": 60.27,
-      "effT": "60,27%",
-      "seitZ": 1757721600000,
-      "seitT": "13.09.2025",
+      "platz": 279,
+      "name": "Andreas Hahnenkamp",
+      "url": "https://padel-austria.at/players/hahnenkamp-andreas",
+      "punkte": 8080,
+      "apnZ": 2.738,
+      "apnT": "2,738",
+      "mZ": 215,
+      "mT": "215",
+      "effZ": 52.09,
+      "effT": "52,09%",
+      "seitZ": 1744416000000,
+      "seitT": "12.04.2025",
       "seitV2": true,
       "bild": "",
-      "flag": "https://flagcdn.com/w40/de.png"
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 279,
+      "name": "Mario Loserth",
+      "url": "https://padel-austria.at/players/loserth-mario",
+      "punkte": 8080,
+      "apnZ": 4.104,
+      "apnT": "4,104",
+      "mZ": 133,
+      "mT": "133",
+      "effZ": 74.44,
+      "effT": "74,44%",
+      "seitZ": 1676678400000,
+      "seitT": "18.02.2023",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
     },
     {
       "platz": 285,
@@ -4968,6 +4968,23 @@
     },
     {
       "platz": 293,
+      "name": "Michael Schlüchter",
+      "url": "https://padel-austria.at/players/schluechter-michael",
+      "punkte": 7950,
+      "apnZ": 3.451,
+      "apnT": "3,451",
+      "mZ": 86,
+      "mT": "86",
+      "effZ": 58.14,
+      "effT": "58,14%",
+      "seitZ": 1722643200000,
+      "seitT": "03.08.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/ch.png"
+    },
+    {
+      "platz": 294,
       "name": "Sergey Zaychenko",
       "url": "https://padel-austria.at/players/zaychenko-sergey",
       "punkte": 7930,
@@ -4984,7 +5001,7 @@
       "flag": "https://flagcdn.com/w40/ua.png"
     },
     {
-      "platz": 294,
+      "platz": 295,
       "name": "Markus Janisch",
       "url": "https://padel-austria.at/players/janisch-markus",
       "punkte": 7925,
@@ -5001,7 +5018,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 294,
+      "platz": 295,
       "name": "Stefan Friessnegger",
       "url": "https://padel-austria.at/players/friessnegger-stefan",
       "punkte": 7925,
@@ -5018,24 +5035,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 296,
-      "name": "Markus Grabner",
-      "url": "https://padel-austria.at/players/grabner-markus",
-      "punkte": 7910,
-      "apnZ": 4.193,
-      "apnT": "4,193",
-      "mZ": 210,
-      "mT": "210",
-      "effZ": 65.71,
-      "effT": "65,71%",
-      "seitZ": 1729555200000,
-      "seitT": "22.10.2024",
-      "seitV2": true,
-      "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 296,
+      "platz": 297,
       "name": "Dino Musija",
       "url": "https://padel-austria.at/players/musija-dino",
       "punkte": 7910,
@@ -5052,7 +5052,24 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 298,
+      "platz": 297,
+      "name": "Markus Grabner",
+      "url": "https://padel-austria.at/players/grabner-markus",
+      "punkte": 7910,
+      "apnZ": 4.193,
+      "apnT": "4,193",
+      "mZ": 210,
+      "mT": "210",
+      "effZ": 65.71,
+      "effT": "65,71%",
+      "seitZ": 1729555200000,
+      "seitT": "22.10.2024",
+      "seitV2": true,
+      "bild": "",
+      "flag": "https://flagcdn.com/w40/at.png"
+    },
+    {
+      "platz": 299,
       "name": "Christian Pichler",
       "url": "https://padel-austria.at/players/pichler-christian-4fa79dcd-2cdc-4db9-84d2-ac9f1d4c6396",
       "punkte": 7900,
@@ -5069,7 +5086,7 @@
       "flag": "https://flagcdn.com/w40/at.png"
     },
     {
-      "platz": 299,
+      "platz": 300,
       "name": "Mario Habl",
       "url": "https://padel-austria.at/players/habl-mario",
       "punkte": 7895,
@@ -5083,23 +5100,6 @@
       "seitT": "07.10.2023",
       "seitV2": true,
       "bild": "",
-      "flag": "https://flagcdn.com/w40/at.png"
-    },
-    {
-      "platz": 300,
-      "name": "Matthias Weber",
-      "url": "https://padel-austria.at/players/weber-matthias",
-      "punkte": 7890,
-      "apnZ": 2.818,
-      "apnT": "2,818",
-      "mZ": 429,
-      "mT": "429",
-      "effZ": 55.24,
-      "effT": "55,24%",
-      "seitZ": 1752278400000,
-      "seitT": "12.07.2025",
-      "seitV2": true,
-      "bild": "https://padel-austria.at/uploads/player/image/16507/large_2p2a2946-562a7e78.jpg",
       "flag": "https://flagcdn.com/w40/at.png"
     }
   ]
